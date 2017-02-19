@@ -6,21 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | iwtofly&#39;s Blog</title>
+  <title>小白眼中的跨域 | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="跨域，这个纠结小白好久的问题，今天终于有些思路了。仿佛遇见了自己将要不是哪个懒得只知道用cors中间件的小白啦（哈哈，收–严肃脸）！
+什么是跨域我们来看一下什么是跨域以及同源策略：
+
+通过XHR实现Ajax通信的的主要限制，来源于跨域安全策略。所谓同源是指，域名，协议，端口相同。默认情况下，XHR对象只能访问与包含它的页面位于同一个域的资源。这种安全策略可以预防某些恶意行为。简单来说，形如a.co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/02/01/hello-world/index.html">
+<meta property="og:title" content="小白眼中的跨域">
+<meta property="og:url" content="http://yoursite.com/2017/02/15/小白眼中的跨域/index.html">
 <meta property="og:site_name" content="iwtofly's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-02-16T14:51:21.000Z">
+<meta property="og:description" content="跨域，这个纠结小白好久的问题，今天终于有些思路了。仿佛遇见了自己将要不是哪个懒得只知道用cors中间件的小白啦（哈哈，收–严肃脸）！
+什么是跨域我们来看一下什么是跨域以及同源策略：
+
+通过XHR实现Ajax通信的的主要限制，来源于跨域安全策略。所谓同源是指，域名，协议，端口相同。默认情况下，XHR对象只能访问与包含它的页面位于同一个域的资源。这种安全策略可以预防某些恶意行为。简单来说，形如a.co">
+<meta property="og:image" content="http://yoursite.com/images/jsonp-result.png">
+<meta property="og:updated_time" content="2017-02-19T15:19:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="小白眼中的跨域">
+<meta name="twitter:description" content="跨域，这个纠结小白好久的问题，今天终于有些思路了。仿佛遇见了自己将要不是哪个懒得只知道用cors中间件的小白啦（哈哈，收–严肃脸）！
+什么是跨域我们来看一下什么是跨域以及同源策略：
+
+通过XHR实现Ajax通信的的主要限制，来源于跨域安全策略。所谓同源是指，域名，协议，端口相同。默认情况下，XHR对象只能访问与包含它的页面位于同一个域的资源。这种安全策略可以预防某些恶意行为。简单来说，形如a.co">
+<meta name="twitter:image" content="http://yoursite.com/images/jsonp-result.png">
   
     <link rel="alternative" href="/atom.xml" title="iwtofly&#39;s Blog" type="application/atom+xml">
   
@@ -160,36 +168,130 @@ Quick">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-小白眼中的跨域" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      小白眼中的跨域
     </h1>
   
 
         
-        <a href="/2017/02/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-02-01T05:07:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-01</time>
+        <a href="/2017/02/15/小白眼中的跨域/" class="archive-article-date">
+  	<time datetime="2017-02-15T13:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+        <p>跨域，这个纠结小白好久的问题，今天终于有些思路了。仿佛遇见了自己将要不是哪个懒得只知道用cors中间件的小白啦（哈哈，收–严肃脸）！</p>
+<h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>我们来看一下什么是跨域以及同源策略：</p>
+<blockquote>
+<p>通过XHR实现Ajax通信的的主要限制，来源于跨域安全策略。所谓同源是指，域名，协议，端口相同。默认情况下，XHR对象只能访问与包含它的页面位于同一个域的资源。这种安全策略可以预防某些恶意行为。<br>简单来说，形如a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。</p>
+</blockquote>
 <a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>跨域的几种情况下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>URL1</th>
+<th style="text-align:right">URL2</th>
+<th style="text-align:right">说明</th>
+<th style="text-align:center">通信否</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td>
+<td style="text-align:right"><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td>
+<td style="text-align:right">同一域名下</td>
+<td style="text-align:center">可</td>
+</tr>
+<tr>
+<td><a href="http://www.a.com/lab/a.js" target="_blank" rel="external">http://www.a.com/lab/a.js</a></td>
+<td style="text-align:right"><a href="http://www.a.com/script/b.js" target="_blank" rel="external">http://www.a.com/script/b.js</a></td>
+<td style="text-align:right">同一域名不同文件夹</td>
+<td style="text-align:center">可</td>
+</tr>
+<tr>
+<td><a href="http://www.a.com:8000/a.js" target="_blank" rel="external">http://www.a.com:8000/a.js</a></td>
+<td style="text-align:right"><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td>
+<td style="text-align:right">同一域名不同端口</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td>
+<td style="text-align:right"><a href="https://www.a.com/b.js" target="_blank" rel="external">https://www.a.com/b.js</a></td>
+<td style="text-align:right">同一域名不同协议</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td>
+<td style="text-align:right"><a href="http://70.32.92.74/b.js" target="_blank" rel="external">http://70.32.92.74/b.js</a></td>
+<td style="text-align:right">域名和域名对应ip</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td>
+<td style="text-align:right"><a href="http://script.a.com/b.js" target="_blank" rel="external">http://script.a.com/b.js</a></td>
+<td style="text-align:right">主域相同，子域不同</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td>
+<td style="text-align:right"><a href="http://a.com/b.js" target="_blank" rel="external">http://a.com/b.js</a></td>
+<td style="text-align:right">同一域名，不同二级域名（同上）</td>
+<td style="text-align:center">否（cookie这种情况下也不允许访问）</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/a.js" target="_blank" rel="external">http://www.cnblogs.com/a.js</a></td>
+<td style="text-align:right"><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td>
+<td style="text-align:right">不同域名</td>
+<td style="text-align:center">否</td>
+</tr>
+</tbody>
+</table>
+<p>其中，如果是协议和端口造成的跨域问题前端是无能为力的；而且，在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。</p>
+<h2 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h2><p>跨域问题的解决办法有很多种,大致可以分为两类：</p>
+<blockquote>
+<ul>
+<li>一类是Hack，比如通过title、navigation、script等对象传递信息，<strong> JSONP </strong>就是一种Hack方式;</li>
+<li>另一类是HTML5支持，其中一种是<strong> Access-Control-Allow-Origin </strong>响应头，一个是<strong> window.postMessage </strong>;</li>
+</ul>
+</blockquote>
+<h4 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1. JSONP"></a>1. JSONP</h4><blockquote>
+<p>实现原理：虽然我们不能直接请求异源上的资源，但是在js中如img，script标签却是可以得到其他服务器上的资源的，那么我们就可以通过这样的方式将一段js代码间接地从外部引入。通过script标签向目标源发起一个GET请求，服务器根据请求的参数返回包含js的代码。</p>
+</blockquote>
+<p>JSONP是JSON with Padding的简写，是一个非官方协议，她允许在服务端集成Script Tags返回客户端，通过javascript callback的形式实现跨域访问（注：简单实现形式是这样）。</p>
+<p>缺点：JSONP只能实现GET请求。随着现在RESTful的兴起，JSONP显得力不从心了。因为，RESTful不仅有GET，还存在POST、PUT、PATCH、DELETE等等。</p>
+<p>下面为index.html的代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>jsonp test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    var url = 'ticker.js';</div><div class="line">    function addScriptTag(src) &#123;</div><div class="line">        var script = document.createElement('script');</div><div class="line">        script.setAttribute('src', src);</div><div class="line">        document.body.appendChild(script);</div><div class="line">    &#125;</div><div class="line">    function callBack(data) &#123;</div><div class="line">        console.log(data);</div><div class="line">    &#125;</div><div class="line">    window.onload = function() &#123;</div><div class="line">        addScriptTag(url);</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>其中，ticker.js中的内容如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">callBack(</div><div class="line">    &#123;</div><div class="line">            <span class="attr">name</span>:<span class="string">'iwtofly'</span>,</div><div class="line">            <span class="attr">job</span>: <span class="string">'FE'</span></div><div class="line">    &#125;</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>结果显示如下：<br><img src="/images/jsonp-result.png" alt="jsonp-result"> </p>
+<p>此外还有很多好玩的地方可以小探索一下，例如google、Flickr等等都提供了JSONP的回调接口，笔者不才最近正在小玩了下Flickr，等稍有成果之后再做呈现。</p>
+<h4 id="2-iframe"><a href="#2-iframe" class="headerlink" title="2. iframe"></a>2. iframe</h4><h4 id="3-domain"><a href="#3-domain" class="headerlink" title="3. domain"></a>3. domain</h4><p>原理 —— 形如<a href="http://a.com/video" target="_blank" rel="external">http://a.com/video</a> 与 <a href="http://b.a.com/video、http://c.a.com/video" target="_blank" rel="external">http://b.a.com/video、http://c.a.com/video</a> 这种<strong> 主域相同，子域不同</strong>的情况，可以通过设置document.domain让它们同域。<br>限制 —— 同域document提供的是页面间的相互操作，需要载入iframe页面(即，只能通过页面嵌套的方式)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.domain用来得到当前网页的域名，给document.domain属性赋值是有限制的 —— 只能赋成当前的域名或者基础域名。<a href="http://b.a.com/" target="_blank" rel="external">http://b.a.com/</a> 为当前域名，<a href="http://a.com/" target="_blank" rel="external">http://a.com/</a> 为基础域名。因此，利用document.domain实现跨域前提条件为，这两个域名必须属于同一个基础域名而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 当前为http://iwtofly.cn/video</span></div><div class="line"><span class="keyword">var</span> ifr = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</div><div class="line">ifr.src = <span class="string">'http://www.iwtofly.com/video'</span>; </div><div class="line">ifr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> ifrdoc = ifr.contentDocument || ifr.contentWindow.document;</div><div class="line">    ifrdoc.getElementsById(<span class="string">"foo"</span>).innerHTML);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ifr.style.display = <span class="string">'none'</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(ifr);</div></pre></td></tr></table></figure></p>
+<p>假设上述代码所在的URL为<a href="http://iwtofly.cn/video" target="_blank" rel="external">http://iwtofly.cn/video</a> ，它对<a href="http://www.iwtofly.com/video" target="_blank" rel="external">http://www.iwtofly.com/video</a> 的DOM访问要求后者将document.domain往上设置一级:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.domain = iwtofly.cn;</div></pre></td></tr></table></figure></p>
+<p>document.domain<strong> 只能从子域设置到主域，往下设置以及往其他域名设置都是不允许的 </strong></p>
+<h4 id="4-cors"><a href="#4-cors" class="headerlink" title="4. cors"></a>4. cors</h4><blockquote>
+<p>CORS（Cross Origin Resource Sharing, 跨源资源共享）是W3C的一个工作草案，定义了在必须访问跨源资源时浏览器与服务器应该如何进行沟通。其背后的思想，就是定义HTTP头部让浏览器与服务器进行沟通，从而决定请求或相应的成功与否，以便服务器根据这个头部信息来决定是否给予相应。</p>
+</blockquote>
+<p>Origin头部示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Origin: http://iwtofly.cn</div></pre></td></tr></table></figure></p>
+<p>如果服务器认为这个来源的请求是可以接受的，就在Access-Control-Allow-Origin头部中回发相同的源信息，’*’代表允许一切来源的请求，一般设置为公共资源。<br>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: http://iwtofly.cn</div></pre></td></tr></table></figure></p>
+<p>笔者用过这方面的工具有nodejs cors中间件。cors中间件在使用前需要安装cors模块：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install cors --save</div></pre></td></tr></table></figure></p>
+<p>然后，在 index.js 内添加中间件 app.use(cors());<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> cors =<span class="built_in">require</span>(<span class="string">'cors'</span>);</div><div class="line"></div><div class="line">app.use(cors()); <span class="comment">// 作用于全局的请求</span></div><div class="line">app.get(<span class="string">'/table'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.send(data);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 只用于'/table'的GET的写法</span></div><div class="line"><span class="comment">// app.get('/table', cors(), function (req, res) &#123;</span></div><div class="line"><span class="comment">//     res.send(data);</span></div><div class="line"><span class="comment">// &#125;);</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> server = app.listen(<span class="number">8988</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> host = server.address().address;</div><div class="line">    <span class="keyword">var</span> port = server.address().port;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'back server: http://%s:%s'</span>, host, port);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>只有使用 cors()中间件才会释放出我们 Api 的访问权限。最好是控制哪些客户端可以进行连接，哪些方法可以使用。最主要的是，必须要在请求的时候加入到头部。在我们这个例子中仅需要设置三个属性： orgin（访问域）、method（访问方法）、alloweHeaders（请求头）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var express = require(<span class="string">'express'</span>);  </div><div class="line">var cors = require(<span class="string">'cors'</span>);  </div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.use(cors(&#123;  </div><div class="line">  origin: [<span class="string">'http://localhost:3001'</span>],</div><div class="line">  methods: [<span class="string">'GET'</span>, <span class="string">'POST'</span>],</div><div class="line">  alloweHeaders: [<span class="string">'Conten-Type'</span>, <span class="string">'Authorization'</span>]</div><div class="line">&#125;));</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="keyword">function</span>(req, res) &#123;  </div><div class="line">  res.json(&#123;status: <span class="string">'My Api is alive!'</span>&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.listen(3000, <span class="function"><span class="title">function</span></span>() &#123;  </div><div class="line">  console.log(<span class="string">'My Api is running...'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">module.exports = app;</div></pre></td></tr></table></figure></p>
+<h4 id="5-中间层代理"><a href="#5-中间层代理" class="headerlink" title="5. 中间层代理"></a>5. 中间层代理</h4><p>跨域问题的核心是不同源访问，因此，如果我们转换为同源请求，就不存在这个问题啦。<br>通过搭建中间层，可以是java，也可以是node.js，通过将服务端的请求进行转发，换句话说，就是dispatcher了一层，那么前端请求的地址，就被转发了，所以很好的解决跨域问题。<br>缺点：如果对性能有考量的产品，就需要慎重选择这个方案，因为多了一层中间转发，不管是网络开销，还是性能负载都是有一定的影响。</p>
+<p>做了一个小测试，假设以下为server2.js,我们真正要请求的后端，运行在3002端口：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 中间层跨域中的：server后端</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.json(&#123;</div><div class="line">        <span class="attr">name</span>: <span class="string">'iwtofly'</span>,</div><div class="line">        <span class="attr">job</span>: <span class="string">'FE'</span></div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line">app.listen(<span class="number">3002</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Express started on 127.0.0.1:3002'</span>);</div></pre></td></tr></table></figure></p>
+<p>前端资源位于不同的域 ，但又想要对<a href="http://127.0.0.1:3002" target="_blank" rel="external">http://127.0.0.1:3002</a> 的内容进行请求，我们可以搭建一个中间层，来转发请求。对于前端来说是对中间层进行了请求。中间层为server.js代码如下，利用了express + superagent：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 中间层跨域中的：中间层</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="comment">// 使用了superagent来发起请求</span></div><div class="line">    <span class="keyword">var</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>);</div><div class="line">    <span class="comment">// 查询本机ip，这里需要根据实际情况选择get还是post</span></div><div class="line">    <span class="keyword">var</span> sreq = superagent.get(<span class="string">'http://127.0.0.1:3002/'</span>);</div><div class="line">    sreq.pipe(res);</div><div class="line">    sreq.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'done'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">app.listen(<span class="number">3001</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Express started on 127.0.0.1:3001'</span>);</div></pre></td></tr></table></figure></p>
+<p>启动中间层，在浏览器中输入<a href="http://127.0.0.1:3001" target="_blank" rel="external">http://127.0.0.1:3001</a> 即可看到返回的正确内容。</p>
+<p>以上代码不借助superagent的实现方法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="comment">// 创建http服务</span></div><div class="line"><span class="keyword">var</span> app = http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="comment">// 查询本机ip</span></div><div class="line">    <span class="keyword">var</span> sreq = http.request(&#123;</div><div class="line">        <span class="attr">host</span>:     <span class="string">'sneezryworks.sinaapp.com'</span>, <span class="comment">// 目标主机</span></div><div class="line">        path:     <span class="string">'/ip.php'</span>, <span class="comment">// 目标路径</span></div><div class="line">        method:   req.method <span class="comment">// 请求方式</span></div><div class="line">    &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">sres</span>)</span>&#123;</div><div class="line">        sres.pipe(res);</div><div class="line">        sres.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'done'</span>);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">if</span> (<span class="regexp">/POST|PUT/i</span>.test(req.method)) &#123;</div><div class="line">        req.pipe(sreq);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        sreq.end();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.listen(<span class="number">3001</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Express started on 127.0.0.1:3001'</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="6-nginx反向代理"><a href="#6-nginx反向代理" class="headerlink" title="6. nginx反向代理"></a>6. nginx反向代理</h4><p>利用nginx路由重写。</p>
+<h4 id="7-window-postMessage"><a href="#7-window-postMessage" class="headerlink" title="7. window.postMessage"></a>7. window.postMessage</h4><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage</a></p>
+<p>参考 ：<a href="https://segmentfault.com/a/1190000000718840" target="_blank" rel="external">https://segmentfault.com/a/1190000000718840</a><br><a href="http://harttle.com/2015/10/10/cross-origin.html" target="_blank" rel="external">http://harttle.com/2015/10/10/cross-origin.html</a><br><a href="http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html" target="_blank" rel="external">http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html</a><br>JSONP ：<a href="http://www.cnblogs.com/chopper/archive/2012/03/24/2403945.html" target="_blank" rel="external">http://www.cnblogs.com/chopper/archive/2012/03/24/2403945.html</a></p>
 
       
 
@@ -219,6 +321,17 @@ Quick">
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -269,7 +382,7 @@ Quick">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/01/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/15/小白眼中的跨域/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,15 +396,11 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2017/02/01/My-New-Post/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          My New Post
-        
-      </div>
-    </a>
   
+    <a href="/2017/02/01/My-New-Post/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">My New Post</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
