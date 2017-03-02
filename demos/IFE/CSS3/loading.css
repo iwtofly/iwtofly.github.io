@@ -1,0 +1,96 @@
+.wrap {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+.inner, .inner2 {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  left: 17px;
+  top: 17px;
+}
+.inner {
+  /*浅色*/
+  background-color: #fb8bbc;
+  opacity: 1;
+  animation: hide2_1 1.6s steps(1, end) infinite;
+}
+.inner2 {
+  opacity: 0;
+  /*深色*/
+  background-color: #ff298c;
+  animation: show2_1 1.6s steps(1, end) infinite;
+}
+@keyframes hide2_1 {
+  0% {opacity: 1;}
+  50%, 100% {opacity: 0;}
+}
+@keyframes show2_1 {
+  0% {opacity: 0;}
+  50%, 100% {opacity: 1;}
+}
+.spiner, .filler, .masker {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+}
+.spiner {
+  /*深色半圆，转动 t=0.8*/
+  background-color: #ff298c;
+  border-radius: 48px 0 0 48px;
+  transform-origin: right center; 
+  animation: spin 800ms infinite linear; 
+  left: 0; 
+  top: 0;
+}
+@keyframes spin {
+  0% {transform: rotate(360deg);}
+  100% {transform: rotate(0deg);}
+}
+.filler {
+  /*深色上边半圆0.8s间隔出现*/
+  border-radius: 0 48px 48px 0;
+  background-color: #ff298c;
+  left: 50%;
+  top: 0;
+  opacity: 1;
+  animation: hide2_1 0.8s steps(1, end) infinite;
+}
+.masker {
+  /*浅色左边，0.8s间隔出现*/
+  border-radius: 48px 0 0 48px;
+  background-color: #fb8bbc;
+  opacity: 0;
+  animation: show2_1 0.8s steps(1, end) infinite;
+}
+.inner2 .spiner, .inner2 .filler { 
+  background-color: #fb8bbc; 
+}
+.inner2 .masker {
+  background-color: #ff298c; 
+}
+.outer{
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  top: 11px;
+  left: 11px;
+  background-color: transparent;
+  border: 2px #ff298c solid;
+  /*border-left: transparent;*/
+  border-radius: 54px 54px;
+  /*animation: spin 800ms infinite; */
+}
+.outer2 {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  top: 11px;
+  left: 11px;
+  background-color: white;
+  border-radius: 54px 54px;
+  animation: spin 800ms infinite linear;
+  transform-origin: 100% 30px
+}
