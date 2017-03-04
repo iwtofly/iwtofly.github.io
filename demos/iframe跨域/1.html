@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1.html</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        // 跨子域时
+        // document.domain = '主域';
+    </script>
+</head>
+<body>
+<iframe src="2.html" id="ifr" frameborder="0" width="100%"></iframe>
+<iframe src="http://www.cnblogs.com/snandy/p/3900016.html" id="ifr2" frameborder="0" width="100%"></iframe>
+
+<script type="text/javascript">
+    function calcPageHeight(doc) {
+        // 混杂模式下的chrome 无论是document.body.clientHeight还是document.documentElement.clientHeight
+        var cHeight = Math.max(doc.body.clientHeight, doc.documentElement.clientHeight);
+        var sHeight = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+
+        var height = Math.max(cHeight, sHeight);
+        return height;
+    }
+    var ifr = document.getElementById('ifr');
+    // 方法1 
+    ifr.onload = function() {
+        var height = calcPageHeight(document);
+        parent.document.getElementById('ifr').style.height = height + 'px';
+    }
+
+</script>
+</body>
+</html>
