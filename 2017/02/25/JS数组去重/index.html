@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="iwtofly's Blog">
 <meta property="og:description" content="注意  ：需要注意包含NaN类型数据的去重
 使用Array.prototype.indexOf(), indexOf使用的是严格等 ‘===’">
-<meta property="og:updated_time" content="2017-02-25T08:50:26.000Z">
+<meta property="og:updated_time" content="2017-03-07T09:24:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS数组去重">
 <meta name="twitter:description" content="注意  ：需要注意包含NaN类型数据的去重
@@ -45,7 +45,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #23b7e5"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -85,7 +85,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/iwtofly" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -102,7 +102,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #23b7e5"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -128,7 +128,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/iwtofly" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -185,7 +185,7 @@
 <h3 id="思路1-gt-arr-filter"><a href="#思路1-gt-arr-filter" class="headerlink" title="思路1 =&gt; arr.filter()"></a>思路1 =&gt; arr.filter()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> arr.indexOf(item) === index;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路2-gt-arr-forEach"><a href="#思路2-gt-arr-forEach" class="headerlink" title="思路2 =&gt; arr.forEach()"></a>思路2 =&gt; arr.forEach()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ret = [];</div><div class="line">    arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (ret.indexOf(item) === <span class="number">-1</span>) &#123;</div><div class="line">            ret.push(item);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="思路3-gt-es2015新增方法includes-解决NaN"><a href="#思路3-gt-es2015新增方法includes-解决NaN" class="headerlink" title="思路3 =&gt; es2015新增方法includes 解决NaN"></a>思路3 =&gt; es2015新增方法includes 解决NaN</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ret = [];</div><div class="line">    arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!ret.includes(item)) &#123;</div><div class="line">            ret.push(item);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="https://www.toobug.net/article/array_unique_in_javascript.html" target="_blank" rel="external">https://www.toobug.net/article/array_unique_in_javascript.html</a></p>
+<h3 id="思路4-gt-借助set，map等ES6新增类型"><a href="#思路4-gt-借助set，map等ES6新增类型" class="headerlink" title="思路4 =&gt; 借助set，map等ES6新增类型"></a>思路4 =&gt; 借助set，map等ES6新增类型</h3><p><a href="https://www.toobug.net/article/array_unique_in_javascript.html" target="_blank" rel="external">https://www.toobug.net/article/array_unique_in_javascript.html</a></p>
 
       
 
@@ -290,6 +290,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/03/07/React中createClass、pureComponent、Component的不同/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          React中createClass、pureComponent、Component的不同
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/02/15/小白眼中的跨域/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">小白眼中的跨域</div>
@@ -337,7 +346,7 @@
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -398,6 +407,22 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Reactjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Reactjs 前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Reactjs，前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Reactjs,前端</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -448,27 +473,11 @@
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://github.com/iwtofly" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>my github</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>nothing else</a>
             </li>
           
         </ul>
