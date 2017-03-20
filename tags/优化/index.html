@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JS数组去重 | iwtofly&#39;s Blog</title>
+  <title>Tag: 优化 | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="注意  ：需要注意包含NaN类型数据的去重
-使用Array.prototype.indexOf(), indexOf使用的是严格等 ‘===’">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JS数组去重">
-<meta property="og:url" content="http://yoursite.com/2017/02/25/JS数组去重/index.html">
+  <meta name="description" content="一只快乐的小前端">
+<meta property="og:type" content="website">
+<meta property="og:title" content="iwtofly's Blog">
+<meta property="og:url" content="http://yoursite.com/tags/优化/index.html">
 <meta property="og:site_name" content="iwtofly's Blog">
-<meta property="og:description" content="注意  ：需要注意包含NaN类型数据的去重
-使用Array.prototype.indexOf(), indexOf使用的是严格等 ‘===’">
-<meta property="og:updated_time" content="2017-03-07T09:24:58.000Z">
+<meta property="og:description" content="一只快乐的小前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS数组去重">
-<meta name="twitter:description" content="注意  ：需要注意包含NaN类型数据的去重
-使用Array.prototype.indexOf(), indexOf使用的是严格等 ‘===’">
+<meta name="twitter:title" content="iwtofly's Blog">
+<meta name="twitter:description" content="一只快乐的小前端">
   
     <link rel="alternative" href="/atom.xml" title="iwtofly&#39;s Blog" type="application/atom+xml">
   
@@ -160,61 +156,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS数组去重" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JS数组去重
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/03/20/lazyLoad简单实现-Flicker图片获取/" class="archive-article-date">
+  	<time datetime="2017-03-20T14:31:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/03/20/lazyLoad简单实现-Flicker图片获取/">lazyLoad简单实现+Flicker图片获取</a>
     </h1>
   
 
-        
-        <a href="/2017/02/25/JS数组去重/" class="archive-article-date">
-  	<time datetime="2017-02-25T08:44:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 注意 </strong> ：需要注意包含NaN类型数据的去重</p>
-<p>使用Array.prototype.indexOf(), indexOf使用的是严格等 ‘===’<br><a id="more"></a></p>
-<h3 id="思路1-gt-arr-filter"><a href="#思路1-gt-arr-filter" class="headerlink" title="思路1 =&gt; arr.filter()"></a>思路1 =&gt; arr.filter()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> arr.indexOf(item) === index;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路2-gt-arr-forEach"><a href="#思路2-gt-arr-forEach" class="headerlink" title="思路2 =&gt; arr.forEach()"></a>思路2 =&gt; arr.forEach()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ret = [];</div><div class="line">    arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (ret.indexOf(item) === <span class="number">-1</span>) &#123;</div><div class="line">            ret.push(item);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路3-gt-es2015新增方法includes-解决NaN"><a href="#思路3-gt-es2015新增方法includes-解决NaN" class="headerlink" title="思路3 =&gt; es2015新增方法includes 解决NaN"></a>思路3 =&gt; es2015新增方法includes 解决NaN</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ret = [];</div><div class="line">    arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!ret.includes(item)) &#123;</div><div class="line">            ret.push(item);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="思路4-gt-借助set，map等ES6新增类型"><a href="#思路4-gt-借助set，map等ES6新增类型" class="headerlink" title="思路4 =&gt; 借助set，map等ES6新增类型"></a>思路4 =&gt; 借助set，map等ES6新增类型</h3><p><a href="https://www.toobug.net/article/array_unique_in_javascript.html" target="_blank" rel="external">https://www.toobug.net/article/array_unique_in_javascript.html</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -222,101 +193,27 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/25/JS数组去重/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/07/React中createClass、pureComponent、Component的不同/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          React中createClass、PureComponent、Component的不同
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/02/15/小白眼中的跨域/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">小白眼中的跨域</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -339,9 +236,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
