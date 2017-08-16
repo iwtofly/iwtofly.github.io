@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flicker photos</title>
+    <style type="text/css">
+        img {
+            display: block;
+            height: 240px;
+        }
+    </style>
+</head>
+<body>
+<form name="searchForm">
+    <input type="text" name="tags" onkeypress='handlePressEnter()'>
+</form>
+<button onclick='handleClick()'>search</button>
+<div id="main">
+
+</div>
+<script type="text/javascript">
+    // This is our function to be called with JSON data
+    var dataGet;
+    function getPhotos(data) {
+        // console.log(data.items);
+        var main = document.getElementById('main');
+        while (main.firstChild) {
+            main.removeChild(main.firstChild);
+        }
+        data.items.map(function(item, index) {
+            var img = document.createElement('img');
+            if (index < 3) {
+                img.setAttribute('src', item.media.m);
+            } else {
+                img.setAttribute('src', '');
+            }
+            img.setAttribute('lazyloadImg', item.media.m)
+            main.appendChild(img);
+        }) 
+        dataGet = data;
+    }
+
+    window.onload = loadImg();
+
+    function loadImg(tags) {
+        var API_KEY = '57713eb1686a507cb0a43b363b6aee6f';
+        if (!tags) {
+            addScriptTag('http://api.flickr.com/services/feeds/photos_public.gne?'
+                + 'method=flickr.photos.search&tags=dogs&format=json&api_key=' + API_KEY + '&per_page=5&jsoncallback=getPhotos');
+        } else {
+            addScriptTag('http://api.flickr.com/services/feeds/photos_public.gne?'
+                + 'method=flickr.photos.search&tags='+ tags +'&format=json&api_key=' + API_KEY + '&per_page=5&jsoncallback=getPhotos');
+        }   
+    }
+
+    function addScriptTag(src) {
+        var script = document.createElement('script');
+        script.setAttribute('src', src);
+        document.body.appendChild(script);
+    }
+
+    function handleClick(e) {
+        var e = e || window.event;
+        e.preventDefault();
+        console.log(searchForm.tags.value)
+        loadImg(searchForm.tags.value);
+    }
+
+    function handlePressEnter() {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            loadImg(searchForm.tags.value);
+            console.log('key enter!');
+        }
+    }
+
+    // lazyLoad相关
+    function getClient() {
+        var l, t, w, h;
+        l = document.documentElement.scrollLeft || document.body.scrollLeft;
+        t = document.documentElement.scrollTop || document.body.scrollTop;
+        w = document.documentElement.clientWidth;
+        h = document.documentElement.clientHeight;
+        return {
+            'left': l,
+            'top': t,
+            'width': w,
+            'height': h
+        }
+    }
+
+    var pos = getClient();
+    window.onscroll = function () {
+        var imgNum=document.getElementsByTagName('img').length;
+        var imgObj=document.getElementsByTagName("img");
+        if (dataGet) {
+            
+            for (var i = 0; i < imgNum; i++) {
+                if (imgObj[i].offsetTop < parseInt(getClient().top, 10) + parseInt(getClient().height, 10)) {
+                    console.log('wintop: ' + (parseInt(getClient().top, 10) + parseInt(getClient().height, 10)))
+                    if (imgObj[i].getAttribute("src") == ""){
+                        imgObj[i].src = imgObj[i].getAttribute("lazyloadImg");
+                    }
+                }
+            }
+        }
+        if (imgObj[imgNum-1].getAttribute("src") !== "") {
+            window.onscroll = null;
+        }
+        
+    }
+
+</script>
+</body>
+</html>

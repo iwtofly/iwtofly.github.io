@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>modal 弹出框</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <button id="btn">点击按钮</button>
+    <script type="text/javascript">
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            btn.onclick = function() {
+                openModal();
+            }
+        }
+        function openModal() {
+            console.log('clicked')
+        }
+    </script>
+</body>
+</html>
