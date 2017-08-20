@@ -9,13 +9,13 @@
   <title>日常CSS备忘 | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。 1. 内容超过一定宽度时设置…1234567&amp;#123;    width: 27em;    white-space: nowrap;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: h">
-<meta name="keywords" content="前端,css">
+<meta name="keywords" content="前端,简单问题反省,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常CSS备忘">
 <meta property="og:url" content="http://yoursite.com/2017/08/16/常忘CSS梳理备份/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。 1. 内容超过一定宽度时设置…1234567&amp;#123;    width: 27em;    white-space: nowrap;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: h">
-<meta property="og:updated_time" content="2017-08-16T13:18:54.000Z">
+<meta property="og:updated_time" content="2017-08-20T03:41:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常CSS备忘">
 <meta name="twitter:description" content="由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。 1. 内容超过一定宽度时设置…1234567&amp;#123;    width: 27em;    white-space: nowrap;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: h">
@@ -62,6 +62,8 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/前端/">前端</a></li>
+	        
+				<li><a href="/tags/js">js</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +123,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -138,12 +142,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/前端/">前端</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/前端/">前端</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/js">js</a></li>
 		        
 				</ul>
 			</nav>
@@ -180,7 +186,7 @@
       
         <p>由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。</p>
 <h3 id="1-内容超过一定宽度时设置…"><a href="#1-内容超过一定宽度时设置…" class="headerlink" title="1. 内容超过一定宽度时设置…"></a>1. 内容超过一定宽度时设置…</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">27em</span>;</div><div class="line">    <span class="attribute">white-space</span>: nowrap;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">-o-text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
+<p>内容超出所设置宽度时会出现’…’<br><a id="more"></a></p>
 <h3 id="2-CSS3的transition过渡属性"><a href="#2-CSS3的transition过渡属性" class="headerlink" title="2. CSS3的transition过渡属性"></a>2. CSS3的transition过渡属性</h3><p>有人说transition、transform、animation分别对应于过渡、变换、动画。</p>
 <p>transition的作用是平滑的改变CSS的值，transition有以下几个属性：</p>
 <blockquote>
@@ -192,7 +198,8 @@
 </ol>
 </blockquote>
 <p>example:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.mydiv</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background</span>: blue;</div><div class="line">    <span class="attribute">transition</span>: all <span class="number">2s</span> <span class="number">0.5s</span> ease;</div><div class="line">    <span class="attribute">-webkit-transition</span>: all <span class="number">2s</span> <span class="number">0.5s</span> ease;</div><div class="line">    <span class="attribute">-moz-transition</span>: all <span class="number">2s</span> <span class="number">0.5s</span> ease;</div><div class="line">    <span class="attribute">-o-transition</span>: all <span class="number">2s</span> <span class="number">0.5s</span> ease;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.mydiv</span><span class="selector-pseudo">:hover</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">background</span>: pink;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>all为width和background均参与变换，最终效果为，鼠标hover之后延迟0.5s颜色渐变、宽度渐变。<br>参与transition的属性有非常多，除了以上两种还有margin、color、border等的。[transform:rotate(360deg); ]</p>
+<p>all为width和background均参与变换，最终效果为，鼠标hover之后延迟0.5s颜色渐变、宽度渐变。<br>参与transition的属性有非常多，除了以上两种还有margin、color、border等等，还有transform相关。</p>
+<p>参考：<br><a href="https://www.w3.org/TR/css3-transitions/#animatable-properties-" target="_blank" rel="external">https://www.w3.org/TR/css3-transitions/#animatable-properties-</a></p>
 <h3 id="3-CSS3-transform-变换"><a href="#3-CSS3-transform-变换" class="headerlink" title="3. CSS3-transform 变换"></a>3. CSS3-transform 变换</h3><p>transform用于调整scale、rotate、translate等等。<br>例如在垂直水平居中时常用<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">-50</span>%, <span class="selector-tag">-50</span>%);</div></pre></td></tr></table></figure></p>
 <p>此外transform经常和transition一起应用，营造比较丰富的动画。<br><strong>transform作用于block元素！！</strong><br>example:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.trans-div</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#beceeb</span>;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">30px</span> auto;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">    <span class="attribute">-webkit-transition</span>:all <span class="number">2s</span> ease-in-out;</div><div class="line">    <span class="attribute">-moz-transition</span>:all <span class="number">2s</span> ease-in-out;</div><div class="line">    <span class="attribute">-o-transition</span>:all <span class="number">2s</span> ease-in-out;</div><div class="line">    <span class="attribute">transition</span>:all <span class="number">2s</span> ease-in-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.trans-div</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(720deg) <span class="built_in">scale</span>(2,2);</div><div class="line">    <span class="attribute">-moz-transform</span>:<span class="built_in">rotate</span>(720deg) <span class="built_in">scale</span>(2,2);</div><div class="line">    <span class="attribute">-o-transform</span>:<span class="built_in">rotate</span>(720deg) <span class="built_in">scale</span>(2,2);</div><div class="line">    <span class="attribute">transform</span>:<span class="built_in">rotate</span>(720deg) <span class="built_in">scale</span>(2,2);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"trans-div"</span>&gt;</span>hover me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -202,6 +209,20 @@
 <blockquote>
 <p>animation-name 名称<br>animation-duration 持续时间<br>animation-timing-function 动画的速度曲线<br>animation-delay  延时<br>animation-iteration-count  应该播放的次数（infinite是无限循环）<br>animation-direction 动画方向</p>
 </blockquote>
+<p>参考：<br><a href="http://lin-xi.github.io/css3-animation" target="_blank" rel="external">http://lin-xi.github.io/css3-animation</a></p>
+<h3 id="5-关于单位vh、vw、vm与calc"><a href="#5-关于单位vh、vw、vm与calc" class="headerlink" title="5. 关于单位vh、vw、vm与calc"></a>5. 关于单位vh、vw、vm与calc</h3><blockquote>
+<p><strong>vw</strong>：是相对于视窗的宽度，100vw为整个宽度<br><strong>vh</strong>：是相对于视窗高度，100vh为整个视窗高度<br><strong>vm</strong>：取决于视窗高宽小的一方  </p>
+</blockquote>
+<p>vw、vh分别对应于浏览器的window.innerWidth/window.innerHeight这一项；<br>calc不能计算诸如 calc(100vh-20px)的公式。</p>
+<h3 id="6-对-after或者-before伪元素设置image大小"><a href="#6-对-after或者-before伪元素设置image大小" class="headerlink" title="6. 对:after或者:before伪元素设置image大小"></a>6. 对:after或者:before伪元素设置image大小</h3><p><strong>相关知识点</strong>：background-image相关<br><strong>项目中小需求是</strong>:**切换导航时tab前出现定位icon，使用:before，关键点如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.tab:before &#123;</div><div class="line">    content: '';</div><div class="line">    display: inline-block;</div><div class="line">    font-size: 0;</div><div class="line">    background-image: url('urlbalabal');</div><div class="line">    background-repeat: no-repeat;</div><div class="line">    background-size: contain; // 此处选择了contain</div><div class="line">    margin-right: 3px;</div><div class="line">    margin-bottom: -4px;</div><div class="line">    height: 18px;</div><div class="line">    width: 12px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>content本身可以设置url(‘imgurl’)，但是这样无法设置图片大小。因此要采用background-image。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background-size: auto | &lt;长度值&gt; | &lt;百分比&gt; | cover | contain</div><div class="line">backgroud-size:contain; //把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。</div><div class="line"></div><div class="line">backgroud-size:cover; // 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。</div><div class="line">// 背景图像的某些部分也许无法显示在背景定位区域中。</div></pre></td></tr></table></figure></p>
+<p>容器与背景图<br>长度比:150/100=1.5<br>宽度比:60/50=1.2<br>cover 取大,所以就按照 长度比 1.5 (等比缩放背景图片)<br>contain 取小,所以就按宽度比 1.2 (等比缩放背景图片)</p>
+<p>参考：</p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/8977957/can-i-change-the-height-of-an-image-in-css-before-after-pseudo-elements" target="_blank" rel="external">https://stackoverflow.com/questions/8977957/can-i-change-the-height-of-an-image-in-css-before-after-pseudo-elements</a></li>
+<li><a href="http://yijiebuyi.com/blog/260c099f3462623f6c1e4425e3bd8664.html" target="_blank" rel="external">http://yijiebuyi.com/blog/260c099f3462623f6c1e4425e3bd8664.html</a></li>
+</ol>
 
       
 
@@ -237,6 +258,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">简单问题反省</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -309,6 +334,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/08/16/js中的深度拷贝/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js中的深度拷贝
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/13/ES6-class继承与ES5继承/" id="article-nav-older" class="article-nav-link-wrap">
@@ -420,11 +454,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Reactjs</a>
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">简单问题反省</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Reactjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,7 +538,7 @@
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>nothing else</a>
+              <a href="http://iwtofly.cn" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>nothing else</a>
             </li>
           
         </ul>
