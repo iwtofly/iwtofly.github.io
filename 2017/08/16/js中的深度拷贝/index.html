@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/16/js中的深度拷贝/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="背景： javascript中，由于Object和Array这类引用类型的值存在，复制变量时若只是简单赋值，两个变量指向同一个堆变量，此时的赋值只是地址赋值。改变其中的一个对象，另外一个也会随之改变。因此，在开发时会有用到深拷贝的场景，例如react进行setState时。">
-<meta property="og:updated_time" content="2017-08-21T11:48:36.000Z">
+<meta property="og:updated_time" content="2017-08-21T11:50:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js中的深度拷贝">
 <meta name="twitter:description" content="背景： javascript中，由于Object和Array这类引用类型的值存在，复制变量时若只是简单赋值，两个变量指向同一个堆变量，此时的赋值只是地址赋值。改变其中的一个对象，另外一个也会随之改变。因此，在开发时会有用到深拷贝的场景，例如react进行setState时。">
@@ -202,7 +202,7 @@
 </li>
 <li>for in会遍历出prototype中的属性</li>
 <li>如果要求高的话，其实还需要单独判断Date、RegExp类型——new Date(src.getDate())，new RegExp(src.valueOf())。</li>
-<li>object.keys(),不会原型链上的属性。</li>
+<li>object.keys(),不会遍历原型链上的属性。</li>
 </ul>
 <p>其他方法深拷贝详见：<br><a href="https://github.com/iwtofly/FE-tools/blob/master/jsUtil.js" target="_blank" rel="external">https://github.com/iwtofly/FE-tools/blob/master/jsUtil.js</a><br>本方法实现：<br><a href="https://github.com/iwtofly/FE-tools/blob/master/clone.js" target="_blank" rel="external">https://github.com/iwtofly/FE-tools/blob/master/clone.js</a></p>
 
@@ -423,11 +423,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Reactjs</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">Reactjs</a>
               </li>
              
               <li class="article-tag-list-item">
