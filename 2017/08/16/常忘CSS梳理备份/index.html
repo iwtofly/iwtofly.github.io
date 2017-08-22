@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/16/常忘CSS梳理备份/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。 1. 内容超过一定宽度时设置…1234567&amp;#123;    width: 27em;    white-space: nowrap;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: h">
-<meta property="og:updated_time" content="2017-08-20T03:41:30.000Z">
+<meta property="og:updated_time" content="2017-08-22T07:55:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常CSS备忘">
 <meta name="twitter:description" content="由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。 1. 内容超过一定宽度时设置…1234567&amp;#123;    width: 27em;    white-space: nowrap;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: h">
@@ -213,7 +213,11 @@
 <h3 id="5-关于单位vh、vw、vm与calc"><a href="#5-关于单位vh、vw、vm与calc" class="headerlink" title="5. 关于单位vh、vw、vm与calc"></a>5. 关于单位vh、vw、vm与calc</h3><blockquote>
 <p><strong>vw</strong>：是相对于视窗的宽度，100vw为整个宽度<br><strong>vh</strong>：是相对于视窗高度，100vh为整个视窗高度<br><strong>vm</strong>：取决于视窗高宽小的一方  </p>
 </blockquote>
-<p>vw、vh分别对应于浏览器的window.innerWidth/window.innerHeight这一项；<br>calc不能计算诸如 calc(100vh-20px)的公式。</p>
+<p>vw、vh分别对应于浏览器的window.innerWidth/window.innerHeight这一项；</p>
+<blockquote>
+<p>calc不能计算诸如 calc(100vh-20px)的公式是个错误的说法！！！calc的优势就在于可以计算mixing units；<br>一直以来以为calc不能计算vh-px，结果发现是’-‘运算符两边没有空格导致不生效。心累。  </p>
+</blockquote>
+<p>参考：<br><a href="https://www.smashingmagazine.com/2015/12/getting-started-css-calc-techniques/" target="_blank" rel="external">https://www.smashingmagazine.com/2015/12/getting-started-css-calc-techniques/</a></p>
 <h3 id="6-对-after或者-before伪元素设置image大小"><a href="#6-对-after或者-before伪元素设置image大小" class="headerlink" title="6. 对:after或者:before伪元素设置image大小"></a>6. 对:after或者:before伪元素设置image大小</h3><p><strong>相关知识点</strong>：background-image相关<br><strong>项目中小需求是</strong>:**切换导航时tab前出现定位icon，使用:before，关键点如下：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.tab:before &#123;</div><div class="line">    content: '';</div><div class="line">    display: inline-block;</div><div class="line">    font-size: 0;</div><div class="line">    background-image: url('urlbalabal');</div><div class="line">    background-repeat: no-repeat;</div><div class="line">    background-size: contain; // 此处选择了contain</div><div class="line">    margin-right: 3px;</div><div class="line">    margin-bottom: -4px;</div><div class="line">    height: 18px;</div><div class="line">    width: 12px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>content本身可以设置url(‘imgurl’)，但是这样无法设置图片大小。因此要采用background-image。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background-size: auto | &lt;长度值&gt; | &lt;百分比&gt; | cover | contain</div><div class="line">backgroud-size:contain; //把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。</div><div class="line"></div><div class="line">backgroud-size:cover; // 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。</div><div class="line">// 背景图像的某些部分也许无法显示在背景定位区域中。</div></pre></td></tr></table></figure></p>
@@ -458,15 +462,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">简单问题反省</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">

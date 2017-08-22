@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>input非直接输入事件兼容处理</title>
+</head>
+<body>
+<input type="text" name="inputEvent" id="testInput">
+<script type="text/javascript">
+	var node = document.querySelector('#testInput');
+	var cpLock = false;
+	// 当浏览器有非直接的文字输入时, compositionstart事件会以同步模式触发.
+	node.addEventListener('compositionstart', function() {
+		cpLock = true;
+		console.log('start')
+	});
+	// 当浏览器是直接的文字输入时, compositionend会以同步模式触发.
+	node.addEventListener('compositionend', function() {
+		cpLock = false;
+		resolve(this);   // 新版本的Chrome input事件在compositionend前触发，这里做兼容
+		console.log('end')
+	});
+
+	node.addEventListener('input', function(){
+		if (!cpLock) {
+			resolve(this);
+		}
+	});
+
+	function resolve(target) {
+		console.log(target.value);
+	}
+</script>
+
+</body>
+</html>
