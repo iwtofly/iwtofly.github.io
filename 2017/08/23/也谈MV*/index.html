@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/images/mvp.png">
 <meta property="og:image" content="http://yoursite.com/images/MVVM.png">
 <meta property="og:image" content="http://yoursite.com/images/redux-mvc.png">
-<meta property="og:updated_time" content="2017-08-23T15:03:08.000Z">
+<meta property="og:updated_time" content="2017-08-24T01:31:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="也谈MV*">
 <meta name="twitter:description" content="复杂的软件开发需要有合理的开发架构，从另一方面来说，这也是开发规范的一种。  MVC、MVP、MVVM源自于职能分化和规划的思想与目的…无论是哪种架构，其实都离不开view、model，区别在于控制流是怎么样的以及各部分之间的分工。 1. 从MVC说起MVC(Model–view–controller)是架构设计模式中的一种，它强制将业务数据与用户界面隔离，用控制器来管理逻辑和用户输入。  模型">
@@ -203,8 +203,9 @@
 <p><strong>MVVM assumes that changes in the ViewModel will be reflected in the view by a robust data-binding engine</strong>。MVVM基本上与 MVP 模式完全一致，但是它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel上，Angular、vue为典型代表。</p>
 <h3 id="4-再来看Redux"><a href="#4-再来看Redux" class="headerlink" title="4. 再来看Redux"></a>4. 再来看Redux</h3><p>当你感觉自己熟练掌握react的state、props、各类生命周期的时候，再来看看redux，会觉得之前仿佛只会写onclick。<br>看一下redux的三大原则：</p>
 <blockquote>
-<p>1.单一数据源：一个应用永远只能有唯一数据源，而不是像传统MVC中那样有多个Model、Model间可以相互监听。<br>2.状态是只读的：reducer的作用是根据当前的action对state进行迭代，并不是直接修改；<br>3.状态修改由纯函数来完成：reducer为纯函数，输入确定-输出确定<br>redux的关键模块有：Reducer、Store、Actions（action creator+action）、Components,其实可以将Redux+react看做MVC的一种实现方式，只不过它强制要求了单向数据流。</p>
+<p>1.单一数据源：一个应用永远只能有唯一数据源，而不是像传统MVC中那样有多个Model、Model间可以相互监听。<br>2.状态是只读的：reducer的作用是根据当前的action对state进行迭代，并不是直接修改；<br>3.状态修改由纯函数来完成：reducer为纯函数，输入确定-输出确定</p>
 </blockquote>
+<p>redux的关键模块有：Reducer、Store、Actions（action creator+action）、Components,其实可以将Redux+react看做MVC的一种实现方式，只不过它强制要求了单向数据流。</p>
 <div style="position: relative;"><br>    <div style="width: 100%;max-width: 500px;margin-left: 50%;transform: translate(-50%, 0);"><img src="/images/redux-mvc.png" alt="redux"> </div><br>    <h5 style="text-align: center;border: none;font-weight: normal;">图5 Redux与MVC<br></h5></div>
 
 <p><strong>Actions = Controller：</strong>在应用中用户触发某些行为时，我们需要dispatch一个action，进行相应的异步请求或业务逻辑处理；<br><strong>Reducer = Model：</strong>Reducer决定了当一个action触发时，是否要进行相应的数据更新<br><strong>Store = ???：</strong> Store在MVC中并没有严格的对应关系，它可以比作连接各个Reducer的模块；<br><strong>Components = Views：</strong> 进行渲染</p>
@@ -431,15 +432,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">简单问题反省</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
