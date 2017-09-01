@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Promise实现原理 | iwtofly&#39;s Blog</title>
+  <title>深入react技术细节 | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只快乐的小前端">
+  <meta name="description" content="getDefaultProps只执行一次：由于 getDefaultProps 是通过构造函数进行管理的，所以也是整个生命周期中最先开始执行的。而 mountComponent 只能望洋兴叹，无法调用到 getDefaultProps。这就解释了为何 getDefault- Props只执行一次。  mountComponent 本质上是通过递归渲染内容的，由于递归的特性，父组件的 compon">
+<meta name="keywords" content="前端,Reactjs,待完善">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise实现原理">
-<meta property="og:url" content="http://yoursite.com/2017/08/02/Promise实现原理/index.html">
+<meta property="og:title" content="深入react技术细节">
+<meta property="og:url" content="http://yoursite.com/2017/09/01/深入react技术细节/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
-<meta property="og:description" content="一只快乐的小前端">
-<meta property="og:updated_time" content="2017-08-02T13:49:08.000Z">
+<meta property="og:description" content="getDefaultProps只执行一次：由于 getDefaultProps 是通过构造函数进行管理的，所以也是整个生命周期中最先开始执行的。而 mountComponent 只能望洋兴叹，无法调用到 getDefaultProps。这就解释了为何 getDefault- Props只执行一次。  mountComponent 本质上是通过递归渲染内容的，由于递归的特性，父组件的 compon">
+<meta property="og:updated_time" content="2017-09-01T02:29:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise实现原理">
-<meta name="twitter:description" content="一只快乐的小前端">
+<meta name="twitter:title" content="深入react技术细节">
+<meta name="twitter:description" content="getDefaultProps只执行一次：由于 getDefaultProps 是通过构造函数进行管理的，所以也是整个生命周期中最先开始执行的。而 mountComponent 只能望洋兴叹，无法调用到 getDefaultProps。这就解释了为何 getDefault- Props只执行一次。  mountComponent 本质上是通过递归渲染内容的，由于递归的特性，父组件的 compon">
   
     <link rel="alternative" href="/atom.xml" title="iwtofly&#39;s Blog" type="application/atom+xml">
   
@@ -163,27 +164,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Promise实现原理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-深入react技术细节" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Promise实现原理
+      深入react技术细节
     </h1>
   
 
         
-        <a href="/2017/08/02/Promise实现原理/" class="archive-article-date">
-  	<time datetime="2017-08-02T13:49:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
+        <a href="/2017/09/01/深入react技术细节/" class="archive-article-date">
+  	<time datetime="2017-09-01T02:23:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <ol>
+<li><p><strong>getDefaultProps只执行一次</strong>：<br>由于 getDefaultProps 是通过构造函数进行管理的，所以也是整个生命周期中最先开始执行的。而 mountComponent 只能望洋兴叹，无法调用到 getDefaultProps。这就解释了为何 getDefault- Props只执行一次。</p>
+</li>
+<li><p><strong>mountComponent 本质上是通过递归渲染内容的</strong>，由于递归的特性，父组件的 componentWillMount 在其子组件的 componentWillMount 之前调用，而父组件的 componentDidMount 在其子组件的 componentDidMount 之后调用.updateComponent也是。</p>
+</li>
+<li><p>在 componentWillReceiveProps 、componentWillMount中调 用 setState，是不会触发 re-render 的，而是会进行 state 合并。 componentWillUnmount 中调用 setState，也是不会触发 re-render，因为所有更新 队列和更新状态都被重置为 null，并清除了公共类，完成了组件卸载操作</p>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p><strong>禁止在 shouldComponentUpdate 和 componentWillUpdate 中调用 setState，这会造成循环 调用，直至耗光浏览器内存后崩溃。</strong></p>
+</li>
+<li><p>其实总共也就四个地方可以调用setState，componentWillMount、componentDidMount、componentWillReceiveProps、componentDidUpdate。其中在shouldComponentUpdate 和 componentWillUpdate不能调用的原因是4.</p>
+</li>
+<li><p>setState 通过一个队列机制实现 state 更新。当调用 setState 时，实际上会执行 enqueueSetState 方法，并对 partialState 以及_pending-<br>StateQueue 更新 列进行合并操作，最终通过 enqueueUpdate 执行 state 更新。</p>
+</li>
+<li><p>如果在 shouldComponentUpdate 或 componentWillUpdate 方法中调用 setState，此时 this._pendingStateQueue != null，则 performUpdateIfNecessary 方法就会调用 updateComponent 方法进行组件更新，但 updateComponent 方法又会调用 shouldComponentUpdate 和 componentWill- Update 方法，因此造成循环调用，使得浏览器内存满后崩溃。</p>
+</li>
+<li><p><strong>tree diff</strong>由于diff算法中没有移动的概念，因此React跨层级移动会影响性能。节点被移动至其他节点时，会删除该节点及其子节点，在其他位置重新创建。</p>
+</li>
+<li><p><strong>component diff</strong>:1. 如果是同一类型的组件，按照原策略继续比较 Virtual DOM 树即可；2. 如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点。3. 对于同一类型的组件，有可能其 Virtual DOM 没有任何变化，如果能够确切知道这点，那<br>么就可以节省大量的 diff 运算时间。因此，React  许用户通过 shouldComponentUpdate() 来判断该组件是否需要进行 diff 算法分析。</p>
+</li>
+<li><p><strong>element diff</strong>：1. insert插入 2. MOVE_EXISTING 旧的集合中有新组建类型 3. Remove删除。 React允许开发者对同一层级的同组子节点，添加唯一 key进行区分，为了防止单纯的顺序变化造成的删除更新。</p>
+</li>
+<li><p>diff算法从以上三个层面进行。</p>
+</li>
+<li><p>从左至右定义一个lastIndex初始值为0，每读取一个新队列中的值会进行变化。遍历新队列，看是否存在于旧队列，若存在，旧队列的位置与lastIndex做比较，如果满足moutIndex &lt; lastIndex则移动（lastIndex为max(lastIndex,moutIndex)），否则保持，若不存在则添加。最后遍历一遍旧队列，如果在新队列中不存在则进行删除。</p>
+</li>
+<li><p>React队列顺序改变导致更新性能最差的情况： 原队列N1、N2、N3….Nn长度为n，新队列 Nn、N1、N2、N3….N(n-1)，原本只是Nn移动，但是diff算法会进行n-1个节点的移动，是diff算法对于节点移动的优化是单向的。</p>
+</li>
+<li><p><strong>React Patch</strong>：将 tree diff 计算出来的 DOM  异 列更新到真实的 DOM 节点上，最终让浏览器能够渲染出更新的数据</p>
+</li>
+</ol>
+
       
 
       
@@ -212,6 +246,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Reactjs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">待完善</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -262,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/02/Promise实现原理/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/01/深入react技术细节/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/13/ES6-class继承与ES5继承/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ES6 class继承与ES5继承
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/20/lazyLoad实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">lazyLoad实现</div>
+    <a href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用promise实现jsonp跨域请求及其优化</div>
       <i class="icon-circle-right"></i>
     </a>
   

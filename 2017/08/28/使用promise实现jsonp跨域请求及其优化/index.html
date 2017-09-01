@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Promise实现原理 | iwtofly&#39;s Blog</title>
+  <title>使用promise实现jsonp跨域请求及其优化 | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只快乐的小前端">
+  <meta name="description" content="JSONP=JSON + padding，借助script标签的src属性，实现脚本跨域。 1. 前端实现需要注意的地方有两点：   什么时候resolve，什么时候reject =&amp;gt; 配合script的onload，onerror事件； 利用闭包，自定义的临时回调函数负责将取回的数据放到闭包所能获取的变量中从而实现resolve，且回调函数需要进行清除； 自定义的script需要进行清除或">
+<meta name="keywords" content="前端,待完善">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise实现原理">
-<meta property="og:url" content="http://yoursite.com/2017/08/02/Promise实现原理/index.html">
+<meta property="og:title" content="使用promise实现jsonp跨域请求及其优化">
+<meta property="og:url" content="http://yoursite.com/2017/08/28/使用promise实现jsonp跨域请求及其优化/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
-<meta property="og:description" content="一只快乐的小前端">
-<meta property="og:updated_time" content="2017-08-02T13:49:08.000Z">
+<meta property="og:description" content="JSONP=JSON + padding，借助script标签的src属性，实现脚本跨域。 1. 前端实现需要注意的地方有两点：   什么时候resolve，什么时候reject =&amp;gt; 配合script的onload，onerror事件； 利用闭包，自定义的临时回调函数负责将取回的数据放到闭包所能获取的变量中从而实现resolve，且回调函数需要进行清除； 自定义的script需要进行清除或">
+<meta property="og:updated_time" content="2017-09-01T08:22:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise实现原理">
-<meta name="twitter:description" content="一只快乐的小前端">
+<meta name="twitter:title" content="使用promise实现jsonp跨域请求及其优化">
+<meta name="twitter:description" content="JSONP=JSON + padding，借助script标签的src属性，实现脚本跨域。 1. 前端实现需要注意的地方有两点：   什么时候resolve，什么时候reject =&amp;gt; 配合script的onload，onerror事件； 利用闭包，自定义的临时回调函数负责将取回的数据放到闭包所能获取的变量中从而实现resolve，且回调函数需要进行清除； 自定义的script需要进行清除或">
   
     <link rel="alternative" href="/atom.xml" title="iwtofly&#39;s Blog" type="application/atom+xml">
   
@@ -163,27 +164,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Promise实现原理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-使用promise实现jsonp跨域请求及其优化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Promise实现原理
+      使用promise实现jsonp跨域请求及其优化
     </h1>
   
 
         
-        <a href="/2017/08/02/Promise实现原理/" class="archive-article-date">
-  	<time datetime="2017-08-02T13:49:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
+        <a href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/" class="archive-article-date">
+  	<time datetime="2017-08-28T02:59:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>JSONP=JSON + padding，借助script标签的src属性，实现脚本跨域。</p>
+<h3 id="1-前端实现"><a href="#1-前端实现" class="headerlink" title="1. 前端实现"></a>1. 前端实现</h3><p>需要注意的地方有两点：</p>
+<blockquote>
+<ul>
+<li>什么时候resolve，什么时候reject =&gt; 配合script的onload，onerror事件；</li>
+<li>利用闭包，自定义的临时回调函数负责将取回的数据放到闭包所能获取的变量中从而实现resolve，且回调函数需要进行清除；</li>
+<li>自定义的script需要进行清除或复用；<a id="more"></a>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> url = <span class="string">'http://localhost:10011'</span>; <span class="comment">// URL of the external script</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadData</span>(<span class="params">url, callback</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> _data;</div><div class="line">    <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">    script.src = url + <span class="string">'?jsoncallback=doSomething'</span>;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.doSomething = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        _data = data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">document</span>.body.appendChild(script);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span>(script.readyState)&#123;</div><div class="line">            <span class="comment">// IE支持 onreadystatechange 事件，而标准浏览器支持 onload 事件来判断脚本的执行状态。</span></div><div class="line">            script.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            	<span class="keyword">if</span>(<span class="keyword">this</span>.readyState == <span class="string">'completed'</span> || <span class="keyword">this</span>.readyState == <span class="string">''</span>loaded)&#123;</div><div class="line">            		resolve(_data);</div><div class="line">                    <span class="keyword">delete</span> <span class="built_in">window</span>.doSomething;</div><div class="line">            	&#125;</div><div class="line">                </div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            script.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                resolve(_data);</div><div class="line">                <span class="keyword">delete</span> <span class="built_in">window</span>.doSomething;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        script.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'could not load this script'</span>));</div><div class="line">            <span class="keyword">delete</span> <span class="built_in">window</span>.doSomething;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">loadData(url).then(<span class="function">(<span class="params">data</span>)=&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>我们通过loadData函数返回一个Promise，当script标签onload成功时进行resolve，并传回callback获取到的请求数据。</p>
+<h3 id="2-后端实现"><a href="#2-后端实现" class="headerlink" title="2. 后端实现"></a>2. 后端实现</h3><p>在Server端：JSONP跨域请求，服务器要动态生成JSON文件，目的就在于把客户端需要的数据装入进去。服务器端代码如下，在下面的代码中，如果前端请求包含约定的callback参数，后端获取方法名后，用该方法包住JSON数据，传递给前端。若不包含约定的callback参数,则直接返回原数据。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">const</span> urllib = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> port = <span class="number">10011</span>;</div><div class="line"><span class="keyword">const</span> data = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'iwtofly'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> params = urllib.parse(req.url, <span class="literal">true</span>);</div><div class="line">    <span class="built_in">console</span>.log(params);</div><div class="line">    <span class="keyword">if</span> (params.query &amp;&amp; params.query.jsoncallback) &#123;</div><div class="line">        <span class="keyword">const</span> str =  params.query.jsoncallback + <span class="string">'('</span> + <span class="built_in">JSON</span>.stringify(data) + <span class="string">')'</span>;</div><div class="line">        res.end(str);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        res.end(<span class="built_in">JSON</span>.stringify(data));</div><div class="line">    &#125;</div><div class="line">&#125;).listen(port, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'server is listening on port '</span> + port);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>上面的实践中规定了’jsoncallback’参数用于传递回调函数名称。当采用JSONP方式调用时，返回回调函数的调用。</p>
+<h3 id="3-优化"><a href="#3-优化" class="headerlink" title="3. 优化"></a>3. 优化</h3><p>可以看出，在上面的实现中，没有进行script标签的删除，因为一旦你的应用程序中使用到了轮询，这样只增加节点而不删除，将导致内存不断增长，增长的比例和加载脚本执行的内容也有很大的关系，所以十分有必要在脚本执行完成以后删除这些script节点。</p>
+<p>我们很自然会想到使用removeChild进行节点的删除。如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">const script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">script.src = url + <span class="string">'?jsoncallback=doSomething'</span>;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.doSomething = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    _data = data;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.body;</div><div class="line">body.appendChild(script);</div><div class="line">...</div><div class="line"><span class="comment">// 在Promise中，而不是append之后，不然脚本还没有加载就会被删除。</span></div><div class="line">body.removeChild(script);</div></pre></td></tr></table></figure></p>
+<p>经人测试后发现这样的解决方案不能完全避免内存的不断增长，标准浏览器包括Chrome随着轮询的都会有内存增长的现象，不过增长程度微乎其微（轮询间隔2m，增长速度也只有4k-8k）。但是IE会有十几到几十K的内存增长。</p>
+<p><a href="http://www.jb51.net/article/24465.htm" target="_blank" rel="external">javascript removeChild 导致的内存泄漏</a><br><a href="https://github.com/simongfxu/simongfxu.github.com/blob/master/posts/2011-10-22-JSONP-Memory-Leak.md" target="_blank" rel="external">script标签清除</a><br><a href="https://groups.google.com/forum/#!topic/jquery-dev/Spn26bLjMFc" target="_blank" rel="external">garbageBin juery getJSON内部实现贴</a></p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>众所周知，jsonp用于发送get请求，那么假如要用jsonp发送post请求改如何实现呢？</p>
+
       
 
       
@@ -212,6 +232,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">待完善</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -262,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/02/Promise实现原理/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/28/使用promise实现jsonp跨域请求及其优化/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,18 +311,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/13/ES6-class继承与ES5继承/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/01/深入react技术细节/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          ES6 class继承与ES5继承
+          深入react技术细节
         
       </div>
     </a>
   
   
-    <a href="/2017/03/20/lazyLoad实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">lazyLoad实现</div>
+    <a href="/2017/08/23/也谈MV*/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">也谈MV*</div>
       <i class="icon-circle-right"></i>
     </a>
   
