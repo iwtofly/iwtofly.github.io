@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/04/关于this/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
-<meta property="og:updated_time" content="2017-09-04T11:21:13.000Z">
+<meta property="og:updated_time" content="2017-09-04T11:42:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于this">
 <meta name="twitter:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
@@ -220,6 +220,7 @@
 <p>在第一个误区例子中，我们可以使用foo.call(foo,i)就是使用了硬绑定，来解决默认绑定带来的问题。<br>应用场景1： <strong>创建包裹函数</strong>，负责接收参数并返回值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a, somthing);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a + something;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">2</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> foo.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 2,3</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></div></pre></td></tr></table></figure></p>
 <p>应用场景2： 创建复用的辅助函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a, somthing);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a + something;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn, obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;;</div><div class="line"><span class="keyword">var</span> bar = bind(foo, obj);</div><div class="line"></div><div class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 5</span></div></pre></td></tr></table></figure></p>
 <p>由于硬绑定的使用场景较多，因此ES5提供了Function.prototype.bind函数，它会返回一个硬绑定的新函数，将你指定的参数设置为this上下文，并调用原始函数。</p>
+<p>bind()函数的功能之一就是可以把除了第一个参数之外的参数都传递给下层的函数，这种技术称为<strong>“部分应用”</strong>，是<strong>“柯里化”</strong>的一种。</p>
 <h4 id="4-new绑定"><a href="#4-new绑定" class="headerlink" title="4. new绑定"></a>4. new绑定</h4><p>在其他语言中，‘<strong>构造函数</strong>’是<strong>类</strong>中的特殊方法。使用new初始化时会调用类中的构造函数。但是js中的new机制其实和其他语言不同。</p>
 <blockquote>
 <p>javascript中构造函数只是一些使用new操作符时被调用的函数。并不属于某个类，也不会实例化一个类。</p>
@@ -474,11 +475,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
