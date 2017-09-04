@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【复习向】作用域 | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2+undefined = NaN  编译器/引擎/作用域123456function foo(a) &amp;#123;    console.log(a+c);    c = a;&amp;#125;foo(2) 如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined），返回给">
+  <meta name="description" content="待整理  2+undefined = NaN  编译器/引擎/作用域123456function foo(a) &amp;#123;    console.log(a+c);    c = a;&amp;#125;foo(2) 如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【复习向】作用域">
 <meta property="og:url" content="http://yoursite.com/2017/09/04/【复习向】作用域/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
-<meta property="og:description" content="2+undefined = NaN  编译器/引擎/作用域123456function foo(a) &amp;#123;    console.log(a+c);    c = a;&amp;#125;foo(2) 如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined），返回给">
-<meta property="og:updated_time" content="2017-09-04T01:51:43.000Z">
+<meta property="og:description" content="待整理  2+undefined = NaN  编译器/引擎/作用域123456function foo(a) &amp;#123;    console.log(a+c);    c = a;&amp;#125;foo(2) 如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined）">
+<meta property="og:updated_time" content="2017-09-04T11:04:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【复习向】作用域">
-<meta name="twitter:description" content="2+undefined = NaN  编译器/引擎/作用域123456function foo(a) &amp;#123;    console.log(a+c);    c = a;&amp;#125;foo(2) 如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined），返回给">
+<meta name="twitter:description" content="待整理  2+undefined = NaN  编译器/引擎/作用域123456function foo(a) &amp;#123;    console.log(a+c);    c = a;&amp;#125;foo(2) 如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined）">
   
     <link rel="alternative" href="/atom.xml" title="iwtofly&#39;s Blog" type="application/atom+xml">
   
@@ -183,7 +183,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
+        <p>待整理</p>
+<ol>
 <li>2+undefined = NaN</li>
 </ol>
 <h3 id="编译器-引擎-作用域"><a href="#编译器-引擎-作用域" class="headerlink" title="编译器/引擎/作用域"></a>编译器/引擎/作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a+c);</div><div class="line">    c = a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">2</span>)</div></pre></td></tr></table></figure>

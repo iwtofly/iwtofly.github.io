@@ -253,7 +253,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
+        <p>待整理</p>
+<ol>
 <li>2+undefined = NaN</li>
 </ol>
 <h3 id="编译器-引擎-作用域"><a href="#编译器-引擎-作用域" class="headerlink" title="编译器/引擎/作用域"></a>编译器/引擎/作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a+c);</div><div class="line">    c = a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">2</span>)</div></pre></td></tr></table></figure>
@@ -309,7 +310,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
+        <p>列出每点，待详细整理</p>
+<ol>
 <li><p><strong>getDefaultProps只执行一次</strong>：<br>由于 getDefaultProps 是通过构造函数进行管理的，所以也是整个生命周期中最先开始执行的。而 mountComponent 只能望洋兴叹，无法调用到 getDefaultProps。这就解释了为何 getDefault- Props只执行一次。</p>
 </li>
 <li><p><strong>mountComponent 本质上是通过递归渲染内容的</strong>，由于递归的特性，父组件的 componentWillMount 在其子组件的 componentWillMount 之前调用，而父组件的 componentDidMount 在其子组件的 componentDidMount 之后调用.updateComponent也是。</p>
