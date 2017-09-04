@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/04/关于this/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
-<meta property="og:updated_time" content="2017-09-04T10:59:42.000Z">
+<meta property="og:updated_time" content="2017-09-04T11:21:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于this">
 <meta name="twitter:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
@@ -235,6 +235,11 @@
 <h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>默认绑定 &lt; 隐式绑定 &lt; 显式绑定/new绑定</p>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>这是阮大大在issue下回怼别人的一个例子，感觉很有趣，就放在这里：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id);</div><div class="line">      &#125;;</div><div class="line">    &#125;;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> f = foo.call(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> t1 = f.call(&#123;<span class="attr">id</span>: <span class="number">2</span>&#125;)()();</div><div class="line"><span class="keyword">var</span> t2 = f().call(&#123;<span class="attr">id</span>: <span class="number">3</span>&#125;)();</div><div class="line"><span class="keyword">var</span> t3 = f()().call(&#123;<span class="attr">id</span>: <span class="number">4</span>&#125;);</div></pre></td></tr></table></figure></p>
 <p>使用箭头函数的定义的函数this取决于f定义阶段<br>答案：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><blockquote>
+<p>为什么第一个例子this.count输出为NaN?</p>
+</blockquote>
+<p>首先，这里是隐式绑定，this指向window，因此，RHS查询时，非严格模式下，产生了一个新的全局变量，值肯定是undefined，但是undefined + 1 = NaN，所以实际上foo中的this.count最终为NaN。</p>
+<p>LHS与RHS为js引擎进行查询时的两种类型，L、R对应left,right，L为等号左侧，即被赋值对象查询，R为非等号左边，但不一定是赋值操作。函数传参具有隐式的LHS引用。</p>
 
       
 
