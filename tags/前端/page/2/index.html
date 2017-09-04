@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>iwtofly&#39;s Blog</title>
+  <title>Tag: 前端 | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一只快乐的小前端">
 <meta property="og:type" content="website">
 <meta property="og:title" content="iwtofly&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/前端/page/2/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="一只快乐的小前端">
 <meta name="twitter:card" content="summary">
@@ -164,38 +164,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-关于this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/02/15/小白眼中的跨域/" class="archive-article-date">
+  	<time datetime="2017-02-15T13:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/04/关于this/">关于this</a>
+      <a class="archive-article-title" href="/2017/02/15/小白眼中的跨域/">小白眼中的跨域</a>
     </h1>
   
 
-        
-        <a href="/2017/09/04/关于this/" class="archive-article-date">
-  	<time datetime="2017-09-04T06:08:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。</p>
-</blockquote>
-<p>动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,632 +199,25 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/04/关于this/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
-
-
-
   
-    <article id="post-【复习向】作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/04/【复习向】作用域/">【复习向】作用域</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/04/【复习向】作用域/" class="archive-article-date">
-  	<time datetime="2017-09-04T01:48:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>2+undefined = NaN</li>
-</ol>
-<h3 id="编译器-引擎-作用域"><a href="#编译器-引擎-作用域" class="headerlink" title="编译器/引擎/作用域"></a>编译器/引擎/作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a+c);</div><div class="line">    c = a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">2</span>)</div></pre></td></tr></table></figure>
-<p>如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined），返回给引擎，但在严格模式下，会报类似ReferenceError的异常。</p>
-<p>如果对变量进行不合理的操作，例如对非函数类型的值进行函数调用，会报出TypeError(作用域判别成功，但对结果的操作不合法/不合理)。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/04/【复习向】作用域/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-深入react技术细节" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/01/深入react技术细节/">深入react技术细节</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/01/深入react技术细节/" class="archive-article-date">
-  	<time datetime="2017-09-01T02:23:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p><strong>getDefaultProps只执行一次</strong>：<br>由于 getDefaultProps 是通过构造函数进行管理的，所以也是整个生命周期中最先开始执行的。而 mountComponent 只能望洋兴叹，无法调用到 getDefaultProps。这就解释了为何 getDefault- Props只执行一次。</p>
-</li>
-<li><p><strong>mountComponent 本质上是通过递归渲染内容的</strong>，由于递归的特性，父组件的 componentWillMount 在其子组件的 componentWillMount 之前调用，而父组件的 componentDidMount 在其子组件的 componentDidMount 之后调用.updateComponent也是。</p>
-</li>
-<li><p>在 componentWillReceiveProps 、componentWillMount中调 用 setState，是不会触发 re-render 的，而是会进行 state 合并。 componentWillUnmount 中调用 setState，也是不会触发 re-render，因为所有更新 队列和更新状态都被重置为 null，并清除了公共类，完成了组件卸载操作</p>
-</li>
-</ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Reactjs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">待完善</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/01/深入react技术细节/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-使用promise实现jsonp跨域请求及其优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/">使用promise实现jsonp跨域请求及其优化</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/" class="archive-article-date">
-  	<time datetime="2017-08-28T02:59:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSONP=JSON + padding，借助script标签的src属性，实现脚本跨域。</p>
-<h3 id="1-前端实现"><a href="#1-前端实现" class="headerlink" title="1. 前端实现"></a>1. 前端实现</h3><p>需要注意的地方有两点：</p>
-<blockquote>
-<ul>
-<li>什么时候resolve，什么时候reject =&gt; 配合script的onload，onerror事件；</li>
-<li>利用闭包，自定义的临时回调函数负责将取回的数据放到闭包所能获取的变量中从而实现resolve，且回调函数需要进行清除；</li>
-<li>自定义的script需要进行清除或复用；
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">待完善</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-也谈MV*" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/23/也谈MV*/">也谈MV*</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/23/也谈MV*/" class="archive-article-date">
-  	<time datetime="2017-08-23T03:00:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>复杂的软件开发需要有合理的开发架构，从另一方面来说，这也是开发规范的一种。</p>
-</blockquote>
-<p>MVC、MVP、MVVM源自于职能分化和规划的思想与目的…无论是哪种架构，其实都离不开view、model，区别在于控制流是怎么样的以及各部分之间的分工。</p>
-<h3 id="1-从MVC说起"><a href="#1-从MVC说起" class="headerlink" title="1. 从MVC说起"></a>1. 从MVC说起</h3><p>MVC(Model–view–controller)是架构设计模式中的一种，它强制将业务数据与用户界面隔离，用控制器来管理逻辑和用户输入。</p>
-<blockquote>
-<p><strong>模型model</strong>: 保存数据，和后端交互同步应用数据或者校验数据<br><strong>视图view</strong>: 用户界面，是model的可视化表示，代表当前状态的视图。<br><strong>控制器controller</strong>: 业务逻辑，连通model与view, model的任何改变会应用到View中，view的操作会通过Controller应用到Model。</p>
-</blockquote>
-<div style="position: relative;"><br>    <div style="width: 100%;max-width: 500px;margin-left: 50%;transform: translate(-50%, 0);"><img src="/images/典型mvc.png" alt="典型mvc"> </div><br>    <h5 style="text-align: center;border: none;font-weight: normal;">图1 controller接收指令<br></h5></div><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/23/也谈MV*/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-js中的类型判定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/22/js中的类型判定/">js中的类型判定</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/22/js中的类型判定/" class="archive-article-date">
-  	<time datetime="2017-08-22T01:40:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。<br>js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”function”、”undefined”。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">123</span>   <span class="comment">// number</span></div><div class="line"><span class="keyword">typeof</span> <span class="string">'123'</span>  <span class="comment">// string</span></div><div class="line"><span class="keyword">typeof</span> undifined <span class="comment">// undefined</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span>   <span class="comment">// boolean</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>  <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> [] <span class="comment">// object</span></div></pre></td></tr></table></figure></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">简单问题反省</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/22/js中的类型判定/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-js中的深度拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/js中的深度拷贝/">js中的深度拷贝</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/js中的深度拷贝/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:38:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>背景：</strong> javascript中，由于Object和Array这类引用类型的值存在，复制变量时若只是简单赋值，两个变量指向同一个堆变量，此时的赋值只是地址赋值。改变其中的一个对象，另外一个也会随之改变。因此，在开发时会有用到深拷贝的场景，例如react进行setState时。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">简单问题反省</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/js中的深度拷贝/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-常忘CSS梳理备份" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/常忘CSS梳理备份/">日常CSS备忘</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/常忘CSS梳理备份/" class="archive-article-date">
-  	<time datetime="2017-08-16T11:38:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。</p>
-<h3 id="1-内容超过一定宽度时设置…"><a href="#1-内容超过一定宽度时设置…" class="headerlink" title="1. 内容超过一定宽度时设置…"></a>1. 内容超过一定宽度时设置…</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">27em</span>;</div><div class="line">    <span class="attribute">white-space</span>: nowrap;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">-o-text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>内容超出所设置宽度时会出现’…’<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">简单问题反省</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/常忘CSS梳理备份/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-ES6-class继承与ES5继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/13/ES6-class继承与ES5继承/">ES6 class继承与ES5继承</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/13/ES6-class继承与ES5继承/" class="archive-article-date">
-  	<time datetime="2017-08-13T07:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JS中的继承是一个比较麻烦的问题，最近在看js设计模式，前几章涉及到许多继承相关的知识点，例如prototype、constructor、__proto__、构造函数，实例和原型。因此在此进行思考和梳理。</p>
-<p><a href="http://keenwon.com/1524.html" target="_blank" rel="external">es5 es6继承</a><br><a href="https://segmentfault.com/a/1190000008390268" target="_blank" rel="external">ES6 CLASS</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/13/ES6-class继承与ES5继承/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Promise实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/Promise实现原理/">Promise实现原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/02/Promise实现原理/" class="archive-article-date">
-  	<time datetime="2017-08-02T13:49:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/Promise实现原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/tags/前端/">&laquo; Prev</a><a class="page-number" href="/tags/前端/">1</a><span class="page-number current">2</span>
     </nav>
   
 
@@ -852,10 +241,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>iwtofly&#39;s Blog</title>
+  <title>关于this | iwtofly&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只快乐的小前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="iwtofly&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
+<meta name="keywords" content="前端,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于this">
+<meta property="og:url" content="http://yoursite.com/2017/09/04/关于this/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
-<meta property="og:description" content="一只快乐的小前端">
+<meta property="og:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
+<meta property="og:updated_time" content="2017-09-04T10:59:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iwtofly&#39;s Blog">
-<meta name="twitter:description" content="一只快乐的小前端">
+<meta name="twitter:title" content="关于this">
+<meta name="twitter:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
   
     <link rel="alternative" href="/atom.xml" title="iwtofly&#39;s Blog" type="application/atom+xml">
   
@@ -162,16 +164,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-关于this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-关于this" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/04/关于this/">关于this</a>
+    <h1 class="article-title" itemprop="name">
+      关于this
     </h1>
   
 
@@ -187,355 +187,78 @@
         <blockquote>
 <p>作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。</p>
 </blockquote>
-<p>动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/04/关于this/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-【复习向】作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/04/【复习向】作用域/">【复习向】作用域</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/04/【复习向】作用域/" class="archive-article-date">
-  	<time datetime="2017-09-04T01:48:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>2+undefined = NaN</li>
-</ol>
-<h3 id="编译器-引擎-作用域"><a href="#编译器-引擎-作用域" class="headerlink" title="编译器/引擎/作用域"></a>编译器/引擎/作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a+c);</div><div class="line">    c = a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">2</span>)</div></pre></td></tr></table></figure>
-<p>如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined），返回给引擎，但在严格模式下，会报类似ReferenceError的异常。</p>
-<p>如果对变量进行不合理的操作，例如对非函数类型的值进行函数调用，会报出TypeError(作用域判别成功，但对结果的操作不合法/不合理)。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/04/【复习向】作用域/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-深入react技术细节" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/01/深入react技术细节/">深入react技术细节</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/01/深入react技术细节/" class="archive-article-date">
-  	<time datetime="2017-09-01T02:23:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p><strong>getDefaultProps只执行一次</strong>：<br>由于 getDefaultProps 是通过构造函数进行管理的，所以也是整个生命周期中最先开始执行的。而 mountComponent 只能望洋兴叹，无法调用到 getDefaultProps。这就解释了为何 getDefault- Props只执行一次。</p>
-</li>
-<li><p><strong>mountComponent 本质上是通过递归渲染内容的</strong>，由于递归的特性，父组件的 componentWillMount 在其子组件的 componentWillMount 之前调用，而父组件的 componentDidMount 在其子组件的 componentDidMount 之后调用.updateComponent也是。</p>
-</li>
-<li><p>在 componentWillReceiveProps 、componentWillMount中调 用 setState，是不会触发 re-render 的，而是会进行 state 合并。 componentWillUnmount 中调用 setState，也是不会触发 re-render，因为所有更新 队列和更新状态都被重置为 null，并清除了公共类，完成了组件卸载操作</p>
-</li>
-</ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Reactjs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">待完善</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/01/深入react技术细节/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-使用promise实现jsonp跨域请求及其优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/">使用promise实现jsonp跨域请求及其优化</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/" class="archive-article-date">
-  	<time datetime="2017-08-28T02:59:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSONP=JSON + padding，借助script标签的src属性，实现脚本跨域。</p>
-<h3 id="1-前端实现"><a href="#1-前端实现" class="headerlink" title="1. 前端实现"></a>1. 前端实现</h3><p>需要注意的地方有两点：</p>
+<p>动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。<br><a id="more"></a></p>
+<h3 id="误区一"><a href="#误区一" class="headerlink" title="误区一"></a>误区一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'foo: '</span> + num);</div><div class="line">    <span class="keyword">this</span>.count++;</div><div class="line">    <span class="comment">// console.log(this.count) // NaN</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">foo.count = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (i &gt; <span class="number">5</span>) &#123;</div><div class="line">        <span class="comment">// 如果调用时只用foo(i),最后输出count为0</span></div><div class="line">        foo(i);</div><div class="line">        <span class="comment">// foo.call(foo, i);</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(foo.count);</div></pre></td></tr></table></figure>
+<p>原意为使用count记录foo的调用次数，但是当前的结果却是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">foo: <span class="number">6</span></div><div class="line">foo: <span class="number">7</span></div><div class="line">foo: <span class="number">8</span></div><div class="line">foo: <span class="number">9</span></div><div class="line"><span class="number">0</span> <span class="comment">// ???</span></div></pre></td></tr></table></figure></p>
+<p>当在foo中打印this.count时，发现count为NaN。而且调试发现，这是一个全局变量。</p>
 <blockquote>
+<p>为什么这是全局变量？为什么这是NaN？</p>
+</blockquote>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><ol>
+<li>循环中使用foo.call(foo, i);，确保this指向函数对象foo本身</li>
+<li>使用 foo.count++;回归词法作用域</li>
+</ol>
+<h3 id="另一个误区"><a href="#另一个误区" class="headerlink" title="另一个误区"></a>另一个误区</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">    <span class="keyword">this</span>.bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();</div></pre></td></tr></table></figure>
+<p>在这里利用了this来隐式的引用函数的词法作用域。试图通过this.bar()引用bar函数（这里能调用成功也只是个意外——this指向window），还试图通过this联通foo和bar的作用域，从而使bar可以访问a，然而失败了。</p>
+<h3 id="this解析"><a href="#this解析" class="headerlink" title="this解析"></a>this解析</h3><p>学习this，需要明确每个函数的<strong>调用栈</strong>，即调用位置。调用位置和调用方式决定了this的绑定对象。this有以下几种绑定规则：</p>
+<h4 id="1-默认绑定-独立函数调用"><a href="#1-默认绑定-独立函数调用" class="headerlink" title="1. 默认绑定-独立函数调用"></a>1. 默认绑定-独立函数调用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">foo(); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>这里foo的调用未使用任何修饰，因此被进行了<strong>默认绑定</strong>。非严格模式下，this.a被解析为全局变量a。（严格模式下会报错TypeError）</p>
+<h4 id="2-隐式绑定"><a href="#2-隐式绑定" class="headerlink" title="2. 隐式绑定"></a>2. 隐式绑定</h4><p>调用位置是否有上下文对象，即foo函数式通过哪个对象来调用的。这种情况下，绑定的对象必须包含一个指向函数的属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj1 = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">foo</span>: foo</div><div class="line">&#125;</div><div class="line"></div><div class="line">obj1.foo(); <span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<p>这种绑定只与属性引用链的<strong>上一层</strong>或者<strong>最后一层</strong>有关，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj2 = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">22</span>,</div><div class="line">    <span class="attr">foo</span>: foo</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj1 = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">obj2</span>: obj2</div><div class="line">&#125;</div><div class="line"></div><div class="line">obj1.obj2.foo(); <span class="comment">// 22</span></div></pre></td></tr></table></figure></p>
+<h5 id="隐式丢失"><a href="#隐式丢失" class="headerlink" title="隐式丢失"></a>隐式丢失</h5><p>隐式绑定的函数会丢失绑定对象，转而遵循默认绑定，从而把this绑定到全局对象或者undefined上（非严格模式）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">foo</span>: foo</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar = obj.foo;</div><div class="line"><span class="keyword">var</span> a = <span class="string">'global , oops'</span>;</div><div class="line"></div><div class="line">bar();  <span class="comment">// 'global , oops'</span></div></pre></td></tr></table></figure></p>
+<p>bar指向了foo，bar的调用不带任何修饰。因此抛出结果与默认绑定一致。此外，若作为参数传入函数也会发生同样的事情，因为函数的参数处理js引擎默认进行了<strong>LHS查询</strong>赋值，获取到的也是foo函数的引用:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doFoo</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    fn();</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">2</span>,</div><div class="line">    <span class="attr">foo</span>: foo</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="string">'global , oops'</span>;</div><div class="line"></div><div class="line">doFoo(obj.foo);  <span class="comment">// 'global , oops'</span></div></pre></td></tr></table></figure></p>
+<p>同理，回调函数中丢失this绑定，也是最常见的。我们通常采取的解决办法是：</p>
 <ul>
-<li>什么时候resolve，什么时候reject =&gt; 配合script的onload，onerror事件；</li>
-<li>利用闭包，自定义的临时回调函数负责将取回的数据放到闭包所能获取的变量中从而实现resolve，且回调函数需要进行清除；</li>
-<li>自定义的script需要进行清除或复用；
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">待完善</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/28/使用promise实现jsonp跨域请求及其优化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-也谈MV*" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/23/也谈MV*/">也谈MV*</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/23/也谈MV*/" class="archive-article-date">
-  	<time datetime="2017-08-23T03:00:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>复杂的软件开发需要有合理的开发架构，从另一方面来说，这也是开发规范的一种。</p>
-</blockquote>
-<p>MVC、MVP、MVVM源自于职能分化和规划的思想与目的…无论是哪种架构，其实都离不开view、model，区别在于控制流是怎么样的以及各部分之间的分工。</p>
-<h3 id="1-从MVC说起"><a href="#1-从MVC说起" class="headerlink" title="1. 从MVC说起"></a>1. 从MVC说起</h3><p>MVC(Model–view–controller)是架构设计模式中的一种，它强制将业务数据与用户界面隔离，用控制器来管理逻辑和用户输入。</p>
+<li>将setTimeout或者请求、监听中的回调函数进行bind(this)，绑定当前作用域的this（硬绑定）;</li>
+<li>或者采取别名保存self=this，借助词法作用域进行访问;</li>
+<li>使用ES6的箭头函数，它没有自己的 this 、直接继承外部作用域的this;</li>
+</ul>
+<h3 id="3-显示绑定"><a href="#3-显示绑定" class="headerlink" title="3. 显示绑定"></a>3. 显示绑定</h3><p>显示绑定大多数情况下是硬绑定，还有一些第三方库或者框架提供的用于绑定的API。这里只分析硬绑定相关。</p>
 <blockquote>
-<p><strong>模型model</strong>: 保存数据，和后端交互同步应用数据或者校验数据<br><strong>视图view</strong>: 用户界面，是model的可视化表示，代表当前状态的视图。<br><strong>控制器controller</strong>: 业务逻辑，连通model与view, model的任何改变会应用到View中，view的操作会通过Controller应用到Model。</p>
+<p>其实硬绑定就是通过我们同通常接触到的call、apply、bind</p>
 </blockquote>
-<div style="position: relative;"><br>    <div style="width: 100%;max-width: 500px;margin-left: 50%;transform: translate(-50%, 0);"><img src="/images/典型mvc.png" alt="典型mvc"> </div><br>    <h5 style="text-align: center;border: none;font-weight: normal;">图1 controller接收指令<br></h5></div><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p>在第一个误区例子中，我们可以使用foo.call(foo,i)就是使用了硬绑定，来解决默认绑定带来的问题。<br>应用场景1： <strong>创建包裹函数</strong>，负责接收参数并返回值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a, somthing);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a + something;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">2</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> foo.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 2,3</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></div></pre></td></tr></table></figure></p>
+<p>应用场景2： 创建复用的辅助函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a, somthing);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a + something;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn, obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">2</span>&#125;;</div><div class="line"><span class="keyword">var</span> bar = bind(foo, obj);</div><div class="line"></div><div class="line"><span class="keyword">var</span> b = bar(<span class="number">3</span>); <span class="comment">// 5</span></div></pre></td></tr></table></figure></p>
+<p>由于硬绑定的使用场景较多，因此ES5提供了Function.prototype.bind函数，它会返回一个硬绑定的新函数，将你指定的参数设置为this上下文，并调用原始函数。</p>
+<h4 id="4-new绑定"><a href="#4-new绑定" class="headerlink" title="4. new绑定"></a>4. new绑定</h4><p>在其他语言中，‘<strong>构造函数</strong>’是<strong>类</strong>中的特殊方法。使用new初始化时会调用类中的构造函数。但是js中的new机制其实和其他语言不同。</p>
+<blockquote>
+<p>javascript中构造函数只是一些使用new操作符时被调用的函数。并不属于某个类，也不会实例化一个类。</p>
+</blockquote>
+<p>使用new来调用函数，会执行：</p>
+<ul>
+<li>1 创建一个全新对象</li>
+<li>2 该对象会被执行[[prototype]]连接</li>
+<li>3 <strong>新对象会绑定到函数调用时的this</strong></li>
+<li>4 如果函数中没有返回其他对象，new表达式中的函数调用会自动返回这个新对象<br>eg:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.a = a;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar = <span class="keyword">new</span> foo(); <span class="comment">// 1.创建bar需要的对象，2. prototype链接，3. this绑定到bar对象 4. 返回新的bar对象</span></div><div class="line"><span class="built_in">console</span>.log(bar.a);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>默认绑定 &lt; 隐式绑定 &lt; 显式绑定/new绑定</p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>这是阮大大在issue下回怼别人的一个例子，感觉很有趣，就放在这里：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id);</div><div class="line">      &#125;;</div><div class="line">    &#125;;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> f = foo.call(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> t1 = f.call(&#123;<span class="attr">id</span>: <span class="number">2</span>&#125;)()();</div><div class="line"><span class="keyword">var</span> t2 = f().call(&#123;<span class="attr">id</span>: <span class="number">3</span>&#125;)();</div><div class="line"><span class="keyword">var</span> t3 = f()().call(&#123;<span class="attr">id</span>: <span class="number">4</span>&#125;);</div></pre></td></tr></table></figure></p>
+<p>使用箭头函数的定义的函数this取决于f定义阶段<br>答案：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div></pre></td></tr></table></figure></p>
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/23/也谈MV*/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-js中的类型判定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/22/js中的类型判定/">js中的类型判定</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/22/js中的类型判定/" class="archive-article-date">
-  	<time datetime="2017-08-22T01:40:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。<br>js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”function”、”undefined”。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">123</span>   <span class="comment">// number</span></div><div class="line"><span class="keyword">typeof</span> <span class="string">'123'</span>  <span class="comment">// string</span></div><div class="line"><span class="keyword">typeof</span> undifined <span class="comment">// undefined</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span>   <span class="comment">// boolean</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>  <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> [] <span class="comment">// object</span></div></pre></td></tr></table></figure></p>
-        
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -552,10 +275,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">简单问题反省</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -563,18 +282,74 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/22/js中的类型判定/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/04/关于this/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/04/【复习向】作用域/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【复习向】作用域</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -582,255 +357,10 @@
 
 
   
-    <article id="post-js中的深度拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/js中的深度拷贝/">js中的深度拷贝</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2017/08/16/js中的深度拷贝/" class="archive-article-date">
-  	<time datetime="2017-08-16T13:38:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>背景：</strong> javascript中，由于Object和Array这类引用类型的值存在，复制变量时若只是简单赋值，两个变量指向同一个堆变量，此时的赋值只是地址赋值。改变其中的一个对象，另外一个也会随之改变。因此，在开发时会有用到深拷贝的场景，例如react进行setState时。<br>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">简单问题反省</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/js中的深度拷贝/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-常忘CSS梳理备份" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/16/常忘CSS梳理备份/">日常CSS备忘</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/16/常忘CSS梳理备份/" class="archive-article-date">
-  	<time datetime="2017-08-16T11:38:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。</p>
-<h3 id="1-内容超过一定宽度时设置…"><a href="#1-内容超过一定宽度时设置…" class="headerlink" title="1. 内容超过一定宽度时设置…"></a>1. 内容超过一定宽度时设置…</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">27em</span>;</div><div class="line">    <span class="attribute">white-space</span>: nowrap;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">-o-text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>内容超出所设置宽度时会出现’…’<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">简单问题反省</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/16/常忘CSS梳理备份/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-ES6-class继承与ES5继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/13/ES6-class继承与ES5继承/">ES6 class继承与ES5继承</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/13/ES6-class继承与ES5继承/" class="archive-article-date">
-  	<time datetime="2017-08-13T07:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JS中的继承是一个比较麻烦的问题，最近在看js设计模式，前几章涉及到许多继承相关的知识点，例如prototype、constructor、__proto__、构造函数，实例和原型。因此在此进行思考和梳理。</p>
-<p><a href="http://keenwon.com/1524.html" target="_blank" rel="external">es5 es6继承</a><br><a href="https://segmentfault.com/a/1190000008390268" target="_blank" rel="external">ES6 CLASS</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/13/ES6-class继承与ES5继承/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Promise实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/Promise实现原理/">Promise实现原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/02/Promise实现原理/" class="archive-article-date">
-  	<time datetime="2017-08-02T13:49:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/Promise实现原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -852,8 +382,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
