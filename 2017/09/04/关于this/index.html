@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/04/关于this/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
-<meta property="og:updated_time" content="2017-09-04T11:42:48.000Z">
+<meta property="og:updated_time" content="2017-09-04T12:48:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于this">
 <meta name="twitter:description" content="作用域分为两种： 1. 词法作用域，2. 动态作用域。javascript遵循词法作用域，闭包等概念也是由词法作用域衍生而来。而this是js中一个特别的关键字，被自动定义在所有函数的作用域中。  动态作用域其实是this的表亲，this机制也没有想象中那么复杂，在缺乏清楚认识的情况下，this的结果才会会有些出乎意料。">
@@ -234,8 +234,19 @@
 </li>
 </ul>
 <h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>默认绑定 &lt; 隐式绑定 &lt; 显式绑定/new绑定</p>
+<h3 id="判断this方法"><a href="#判断this方法" class="headerlink" title="判断this方法"></a>判断this方法</h3><ul>
+<li>函数是否在new中调用——this是创建的对象</li>
+<li>函数是否通过apply,call调用——this绑定的是指定对象</li>
+<li>是否是隐式绑定，obj.foo(), this指向最后一级调用;</li>
+<li>是否是默认绑定——window(非严格)/undefined(严格)</li>
+</ul>
+<h3 id="特例"><a href="#特例" class="headerlink" title="特例"></a>特例</h3><p>有几个特例不太符合以上几种描述</p>
+<h4 id="1-忽略this"><a href="#1-忽略this" class="headerlink" title="1. 忽略this"></a>1. 忽略this</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"></div><div class="line">foo.call(<span class="literal">null</span>); <span class="comment">// 输出2,</span></div></pre></td></tr></table></figure>
+<p>null或undefined被传入call,apply或bind时会被忽略，变为默认引用。<br><strong>用途</strong>：<br>bind柯里化foo.bind(null, 2)，apply展开参数 foo.apply(null, [2,3])。<br><strong>副作用</strong>：<br>如果foo真的使用了this，会产生错误，综合而言，容易产生Bug。<br><strong>副作用解决——更安全的this</strong>:<br>借助Object.create(null)产生的空对象, Object.create(null)与{}的不同是不会创建Object.prototype的委托:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"a: "</span> + a + <span class="string">",b: "</span> + b);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> ø = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</div><div class="line"></div><div class="line">foo.apply(ø, [<span class="number">2</span>, <span class="number">3</span>]);</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar = foo.bind(ø, <span class="number">2</span>);</div><div class="line">bar(<span class="number">3</span>); <span class="comment">// a: 2, b: 3</span></div></pre></td></tr></table></figure></p>
+<h4 id="2-this词法"><a href="#2-this词法" class="headerlink" title="2. this词法"></a>2. this词法</h4><p>ES6箭头函数无法使用以上规则，而是根据外层（函数或全局）作用域来决定this。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">a</span>) =&gt;</span> &#123;</div><div class="line">        <span class="comment">// this继承自foo</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj1 = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj2 = &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">3</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> bar = foo.call(obj1); <span class="comment">// 返回箭头函数</span></div><div class="line">bar.call(obj2); <span class="comment">// 2 不是3</span></div></pre></td></tr></table></figure></p>
+<p>箭头函数的绑定无法被修改。</p>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p>这是阮大大在issue下回怼别人的一个例子，感觉很有趣，就放在这里：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id);</div><div class="line">      &#125;;</div><div class="line">    &#125;;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> f = foo.call(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> t1 = f.call(&#123;<span class="attr">id</span>: <span class="number">2</span>&#125;)()();</div><div class="line"><span class="keyword">var</span> t2 = f().call(&#123;<span class="attr">id</span>: <span class="number">3</span>&#125;)();</div><div class="line"><span class="keyword">var</span> t3 = f()().call(&#123;<span class="attr">id</span>: <span class="number">4</span>&#125;);</div></pre></td></tr></table></figure></p>
-<p>使用箭头函数的定义的函数this取决于f定义阶段<br>答案：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>使用箭头函数的定义的函数this取决于f定义阶段，第一个箭头函数的this继承于foo，foo的this被硬绑定到了{id: 1}。并且箭头函数没有本身的this，所以内部的箭头函数的this逐级向上继承全部来自于foo。<br>答案：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div><div class="line">id: <span class="number">1</span></div></pre></td></tr></table></figure></p>
 <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><blockquote>
 <p>为什么第一个例子this.count输出为NaN?</p>
 </blockquote>
@@ -471,19 +482,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
               </li>
             
             <div class="clearfix"></div>
