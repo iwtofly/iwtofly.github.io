@@ -534,7 +534,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。<br>js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”function”、”undefined”。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">123</span>   <span class="comment">// number</span></div><div class="line"><span class="keyword">typeof</span> <span class="string">'123'</span>  <span class="comment">// string</span></div><div class="line"><span class="keyword">typeof</span> undifined <span class="comment">// undefined</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span>   <span class="comment">// boolean</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>  <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> [] <span class="comment">// object</span></div></pre></td></tr></table></figure></p>
+        <p>深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。<br>js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”function”、”undefined”。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"><span class="keyword">typeof</span> <span class="number">123</span>   <span class="comment">// number</span></div><div class="line"><span class="keyword">typeof</span> <span class="string">'123'</span>  <span class="comment">// string</span></div><div class="line"><span class="keyword">typeof</span> undifined <span class="comment">// undefined</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span>   <span class="comment">// boolean</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>  <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> [] <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> Foo <span class="comment">// function</span></div></pre></td></tr></table></figure></p>
         
       
 
@@ -676,7 +676,7 @@
       
         <p>由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。</p>
 <h3 id="1-内容超过一定宽度时设置…"><a href="#1-内容超过一定宽度时设置…" class="headerlink" title="1. 内容超过一定宽度时设置…"></a>1. 内容超过一定宽度时设置…</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">27em</span>;</div><div class="line">    <span class="attribute">white-space</span>: nowrap;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">-o-text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>内容超出所设置宽度时会出现’…’<br>
+<p>内容超出所设置宽度时会出现’…’。white-space: nowrap会使文字保持在一行，overflow: hidden;超过设置的宽度则不显示。<br>
         
       
 
@@ -937,19 +937,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>

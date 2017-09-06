@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/22/js中的类型判定/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”fun">
-<meta property="og:updated_time" content="2017-08-24T02:52:24.000Z">
+<meta property="og:updated_time" content="2017-09-06T09:14:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js中的类型判定">
 <meta name="twitter:description" content="深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”fun">
@@ -184,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。<br>js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”function”、”undefined”。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">123</span>   <span class="comment">// number</span></div><div class="line"><span class="keyword">typeof</span> <span class="string">'123'</span>  <span class="comment">// string</span></div><div class="line"><span class="keyword">typeof</span> undifined <span class="comment">// undefined</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span>   <span class="comment">// boolean</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>  <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> [] <span class="comment">// object</span></div></pre></td></tr></table></figure></p>
+        <p>深拷贝或者日常开发中经常涉及到一些关于类型判定的场景，尤其是数组，我在这一小节，着重分析数组、null、NaN的判断方法。<br>js有5种基本类型，分别为number、string、boolean、null、undefined。引用类型Object，数组属于引用类型中的一种。typeof 而方法返回的是字符串，有六种可能：”number”、”string”、”boolean”、”object”、”function”、”undefined”。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"><span class="keyword">typeof</span> <span class="number">123</span>   <span class="comment">// number</span></div><div class="line"><span class="keyword">typeof</span> <span class="string">'123'</span>  <span class="comment">// string</span></div><div class="line"><span class="keyword">typeof</span> undifined <span class="comment">// undefined</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span>   <span class="comment">// boolean</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>  <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> [] <span class="comment">// object</span></div><div class="line"><span class="keyword">typeof</span> Foo <span class="comment">// function</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h3 id="Array类型判断"><a href="#Array类型判断" class="headerlink" title="Array类型判断"></a>Array类型判断</h3><p>数组类型的判断大致有三种：</p>
 <h4 id="1-constructor-instanceof"><a href="#1-constructor-instanceof" class="headerlink" title="1.  constructor/instanceof"></a>1.  constructor/instanceof</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">value <span class="keyword">instanceof</span> <span class="built_in">Array</span></div><div class="line">value.constructor</div></pre></td></tr></table></figure>
@@ -439,19 +439,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>

@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/16/常忘CSS梳理备份/index.html">
 <meta property="og:site_name" content="iwtofly&#39;s Blog">
 <meta property="og:description" content="由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。 1. 内容超过一定宽度时设置…1234567&amp;#123;    width: 27em;    white-space: nowrap;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: h">
-<meta property="og:updated_time" content="2017-08-22T07:55:22.000Z">
+<meta property="og:updated_time" content="2017-09-06T13:08:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常CSS备忘">
 <meta name="twitter:description" content="由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。 1. 内容超过一定宽度时设置…1234567&amp;#123;    width: 27em;    white-space: nowrap;    text-overflow: ellipsis;    -o-text-overflow: ellipsis;    overflow: h">
@@ -186,7 +186,7 @@
       
         <p>由于经常使用框架配套组件库，CSS技巧会生疏，今天转正面试被问到transiton都感觉很尴尬，因此在此梳理记录。</p>
 <h3 id="1-内容超过一定宽度时设置…"><a href="#1-内容超过一定宽度时设置…" class="headerlink" title="1. 内容超过一定宽度时设置…"></a>1. 内容超过一定宽度时设置…</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">27em</span>;</div><div class="line">    <span class="attribute">white-space</span>: nowrap;</div><div class="line">    <span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">-o-text-overflow</span>: ellipsis;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>内容超出所设置宽度时会出现’…’<br><a id="more"></a></p>
+<p>内容超出所设置宽度时会出现’…’。white-space: nowrap会使文字保持在一行，overflow: hidden;超过设置的宽度则不显示。<br><a id="more"></a></p>
 <h3 id="2-CSS3的transition过渡属性"><a href="#2-CSS3的transition过渡属性" class="headerlink" title="2. CSS3的transition过渡属性"></a>2. CSS3的transition过渡属性</h3><p>有人说transition、transform、animation分别对应于过渡、变换、动画。</p>
 <p>transition的作用是平滑的改变CSS的值，transition有以下几个属性：</p>
 <blockquote>
@@ -227,7 +227,7 @@
 <li><a href="https://stackoverflow.com/questions/8977957/can-i-change-the-height-of-an-image-in-css-before-after-pseudo-elements" target="_blank" rel="external">https://stackoverflow.com/questions/8977957/can-i-change-the-height-of-an-image-in-css-before-after-pseudo-elements</a></li>
 <li><a href="http://yijiebuyi.com/blog/260c099f3462623f6c1e4425e3bd8664.html" target="_blank" rel="external">http://yijiebuyi.com/blog/260c099f3462623f6c1e4425e3bd8664.html</a></li>
 </ol>
-
+<h3 id="6-实现一个完美底部：当页面不足一屏时底部信息撑开页面在页面最下方，当页面内容一屏显示不下时跟随在页面内容末尾，而不是像fixed一样始终在最下方遮挡内容。"><a href="#6-实现一个完美底部：当页面不足一屏时底部信息撑开页面在页面最下方，当页面内容一屏显示不下时跟随在页面内容末尾，而不是像fixed一样始终在最下方遮挡内容。" class="headerlink" title="6. 实现一个完美底部：当页面不足一屏时底部信息撑开页面在页面最下方，当页面内容一屏显示不下时跟随在页面内容末尾，而不是像fixed一样始终在最下方遮挡内容。"></a>6. 实现一个完美底部：当页面不足一屏时底部信息撑开页面在页面最下方，当页面内容一屏显示不下时跟随在页面内容末尾，而不是像fixed一样始终在最下方遮挡内容。</h3><h3 id="7-position-有几种定位方式，分别相对谁定位"><a href="#7-position-有几种定位方式，分别相对谁定位" class="headerlink" title="7. position:有几种定位方式，分别相对谁定位"></a>7. position:有几种定位方式，分别相对谁定位</h3><h3 id="8-float和inline-block达成的横排效果上有什么区别？如何消除？"><a href="#8-float和inline-block达成的横排效果上有什么区别？如何消除？" class="headerlink" title="8. float和inline-block达成的横排效果上有什么区别？如何消除？"></a>8. float和inline-block达成的横排效果上有什么区别？如何消除？</h3>
       
 
       
@@ -470,19 +470,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
