@@ -164,6 +164,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-【css复习】完美底部" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/【css复习】完美底部/">完美底部</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/【css复习】完美底部/" class="archive-article-date">
+  	<time datetime="2017-09-06T13:48:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>实现一个完美底部：当页面内容不能铺满全屏时，footer固定于屏幕最下方，当内容超出全屏出现滚动条时，footer在内容的最下方。</p>
+</blockquote>
+<p>这怕是我们写pc端或是移动端页面经常遇到的问题了，其实每次都可以写出，但是没有进行总结，在这里总结以下几种方法。</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>对footer使用position:absolute，bottom为0，页面整体wrapper用wrapper嵌套，并设置min-height为100%（IE6下为height:100%）。<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/【css复习】完美底部/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-关于this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -240,7 +306,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/04/【复习向】作用域/">【复习向】作用域</a>
+      <a class="article-title" href="/2017/09/04/【复习向】作用域/">复习作用域</a>
     </h1>
   
 
@@ -253,13 +319,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>待整理</p>
-<ol>
-<li>2+undefined = NaN</li>
-</ol>
-<h3 id="编译器-引擎-作用域"><a href="#编译器-引擎-作用域" class="headerlink" title="编译器/引擎/作用域"></a>编译器/引擎/作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a+c);</div><div class="line">    c = a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">2</span>)</div></pre></td></tr></table></figure>
-<p>如上，引擎对于变量的查询分为LHS和RHS,c未使用var 或 let 等声明，在非严格模式下，进行LHS查询至顶层（全局作用域时），作用域会创建一个具有该名称的变量（undefined），返回给引擎，但在严格模式下，会报类似ReferenceError的异常。</p>
-<p>如果对变量进行不合理的操作，例如对非函数类型的值进行函数调用，会报出TypeError(作用域判别成功，但对结果的操作不合法/不合理)。<br>
+        <p>在传统编译语言的流程中，程序中的一段源代码在执行之前会经历三个步骤，统称为“编译”。</p>
+<blockquote>
+<ul>
+<li>分词/词法分析<br>例如var a = 2;,会被分解成为下面这些词法单元:var、a、=、2 、;</li>
+<li>解析/语法分析(Parsing)<br>这个过程是将词法单元流(数组)转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。这个树被称为“抽象语法树”(Abstract Syntax Tree，AST)。</li>
+<li>代码生成<br>将 AST 转换为可执行代码的过程称被称为代码生成。</li>
+</ul>
+</blockquote>
+<p>与其他语言不同，JavaScript 的编译过程不是发生在构建之前的。对于 JavaScript 来说，大部分情况下编译发生在代码执行前的几微秒(甚至更短)的时间内。在我们所要讨论的作用域背后，JavaScript 引擎用尽了各种办法(比如JIT，可以延迟编译甚至实施重编译)来保证性能最佳。<br>
         
       
 
@@ -778,56 +846,6 @@
 
 
   
-    <article id="post-Promise实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/Promise实现原理/">Promise实现原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/02/Promise实现原理/" class="archive-article-date">
-  	<time datetime="2017-08-02T13:49:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/02/Promise实现原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -941,7 +959,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,7 +967,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">待完善</a>
               </li>
             
             <div class="clearfix"></div>
